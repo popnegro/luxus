@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
+
+    <!-- SEO Base -->
+    <title>Metodología | Luxus Consultores - Análisis y Ejecución</title>
+    <meta name="description" content="Nuestra ruta estratégica combina inteligencia de datos, análisis de contexto y ejecución táctica para proteger y potenciar la reputación organizacional.">
+    <link rel="canonical" href="https://www.luxusconsultores.com/metodologia.html">
+
+    <!-- Open Graph (Fallback) -->
+    <meta property="og:title" content="Metodología | Luxus Consultores">
+    <meta property="og:description" content="Análisis, criterio y ejecución táctica para proteger y potenciar la reputación organizacional.">
+    <meta property="og:image" content="https://www.luxusconsultores.com/assets/img/og-image.webp">
+    <meta property="og:type" content="website">
+    <link rel="preload" href="assets/img/posicionamiento-estrategico.webp" as="image" type="image/webp" fetchpriority="high">
+
+    <!-- Preconexiones y Estilos -->
+    <link rel="preload" href="assets/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/poppins-v20-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-blue); --atmosphere-color-alt: var(--color-luxus-purple);">
+
+    <include src="assets/partials/navigation-section.html"></include>
+
+    <main id="main-content" class="grow">
+        <!-- HERO METODOLOGÍA -->
+         <section id="hero" class="luxus-hero">
+            <div aria-hidden="true" class="luxus-hero-blob"><div></div></div>
+            
+            <div class="section-container relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-center">
+                    <div class="reveal order-2 lg:order-1">
+                        <div class="pill-kicker mb-6">
+                            <span class="text-[13px] text-luxus-blue font-bold uppercase tracking-widest">Estrategia de Autoridad</span>
+                        </div>
+                        <h1 class="hero-title text-balance">
+                            Comunicación con <span class="text-accent-luxus-blue">criterio estratégico</span>
+                        </h1>
+                        <p class="section-description mb-10 text-slate-300 max-w-xl">
+                            Transformamos la complejidad en mensajes claros para organizaciones que buscan excelencia, reputación y vínculos sólidos.
+                        </p>
+                        <div class="reveal d2 flex flex-wrap gap-4 mt-8">
+                        <a href="contacto.html" class="btn-primary w-full md:w-auto">Solicitar una reunión</a>
+                        <a href="servicios.html" class="btn-secondary w-full md:w-auto">Conocer servicios</a>
+                    </div>
+                </div>
+                    <div class="reveal d2 order-1 lg:order-2 flex justify-center lg:block lg:mt-0">
+                        <div class="hero-mask-visual">
+                            <img src="assets/img/comunicacion-institucional.webp" alt="Estrategia Luxus" class="img-grayscale-reveal" loading="eager" fetchpriority="high">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENIDO DINÁMICO: METODOLOGÍA -->
+        <include src="assets/partials/metodologia-section.html"></include>
+
+        <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
+        <section class="relative isolate overflow-hidden">
+            <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-purple/10 rounded-full pointer-events-none -z-10"></div>
+            <include src="assets/partials/cta-home.html"></include>
+        </section>
+
+        
+    </main>
+    
+    <include src="assets/partials/footer-section.html"></include>
+
+    <script src="assets/js/scripts.js" type="module"></script>
+</body>
+</html>

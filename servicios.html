@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
+    <!-- Default SEO meta tags (used as fallback if dynamic SEO is unavailable) -->
+    <title>Expertise y Soluciones | Luxus Consultores</title>
+    <meta name="description" content="Estrategias a la medida en comunicación institucional, gestión de reputación y crisis.">
+    <link rel="canonical" href="https://www.luxusconsultores.com/servicios.html">
+
+    <!-- Open Graph (Fallback) -->
+    <meta property="og:title" content="Servicios Especializados | Luxus Consultores">
+    <meta property="og:description" content="Soluciones estratégicas para la gestión de activos intangibles.">
+    <meta property="og:image" content="https://www.luxusconsultores.com/assets/img/og-image.webp">
+    <meta property="og:type" content="website">
+    <link rel="preload" href="assets/img/asuntos-publicos.webp" as="image" type="image/webp" fetchpriority="high">
+
+    <!-- Preconexiones y Estilos -->
+    <!-- Carga de fuentes asíncrona desde Google Fonts (Core Web Vitals Best Practice) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@500;600;700&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-blue); --atmosphere-color-alt: var(--color-luxus-green);">
+    <include src="assets/partials/navigation-section.html"></include>
+    <main id="main-content">
+        <!-- HERO UNIFICADO -->
+       <section id="hero" class="luxus-hero section-standard">
+            <div aria-hidden="true" class="luxus-hero-blob"><div></div></div>
+            
+            <div class="section-container relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-center">
+                    <div class="reveal order-2 lg:order-1">
+                        <div class="pill-kicker mb-6">
+                            <span class="text-[13px] text-luxus-blue font-bold uppercase tracking-widest">Estrategia de Autoridad</span>
+                        </div>
+                        <h1 class="hero-title text-balance">
+                            Comunicación con <span class="text-accent-luxus-blue">criterio estratégico</span>
+                        </h1>
+                        <p class="section-description mb-10 text-slate-300 max-w-xl">
+                            Transformamos la complejidad en mensajes claros para organizaciones que buscan excelencia, reputación y vínculos sólidos.
+                        </p>
+                        <div class="reveal d2 flex flex-wrap gap-4 mt-8">
+                        <a href="contacto.html" class="btn-primary w-full md:w-auto">Solicitar una reunión</a>
+                        <a href="servicios.html" class="btn-secondary w-full md:w-auto">Conocer servicios</a>
+                    </div>
+                </div>
+                    <div class="reveal d2 order-1 lg:order-2 flex justify-center lg:block lg:mt-0">
+                        <div class="hero-mask-visual">
+                            <img src="assets/img/comunicacion-institucional.webp" alt="Estrategia Luxus" class="img-grayscale-reveal" loading="eager" fetchpriority="high">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPLORADOR DE SERVICIOS (Aside + Tabs) -->
+        <section class="section-standard relative isolate">
+            <div class="section-container">
+                <h2 class="sr-only">Explorador de Servicios</h2>
+                <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-3 lg:gap-10">
+                    
+                    <aside class="lg:col-span-1 lg:sticky lg:top-28 reveal" aria-label="Explorador de servicios">
+                        <div class="luxus-surface bg-slate-900/20! p-5 md:p-6 lg:p-8">
+                            <header class="pb-6 border-b border-white/5">
+                                <span class="section-kicker text-luxus-blue">Mapa de soluciones</span>
+                                <h3 class="text-2xl font-bold text-white mt-3 tracking-tight">Elija el frente estratégico.</h3>
+                                <p class="body-small mt-2 md:mt-4">Revise el alcance de cada servicio especializado.</p>
+                            </header>
+                           
+
+                            <div id="serviceTabs" class="relative mt-6 flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 pb-4 -mx-5 px-5 lg:mx-0 lg:px-0 lg:pb-0 lg:grid lg:grid-cols-1 lg:gap-1 lg:overflow-visible" role="tablist" aria-label="Servicios especializados">
+                                <div class="hidden lg:block absolute left-0 top-0 bottom-0 w-px bg-white/5 z-0">
+                                    <div class="service-nav-indicator absolute left-0 w-1 bg-linear-to-b from-luxus-blue to-luxus-purple transition-all duration-500" style="height: 12.5%; top: 0;"></div>
+                                </div>
+
+                                <button type="button" class="service-tab-btn active tab-blue flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" id="btn-institucional" aria-selected="true" aria-controls="tab-institucional" data-target-tab="tab-institucional" aria-controls="tab-institucional">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">01</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Comunicación <br class="hidden lg:block"> Institucional</span>
+                                    </span>
+                                </button>
+                                <button type="button" class="service-tab-btn tab-purple flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" id="btn-medios" aria-selected="false" aria-controls="tab-medios" data-target-tab="tab-medios" aria-controls="tab-medios">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">02</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Relaciones <br class="hidden lg:block"> con Medios</span>
+                                    </span>
+                                </button>
+                                <button type="button" class="service-tab-btn tab-green flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" aria-selected="false" id="btn-posicionamiento" data-target-tab="tab-posicionamiento" aria-controls="tab-posicionamiento">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">03</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Posicionamiento <br class="hidden lg:block"> Estratégico</span>
+                                    </span>
+                                </button>
+                                <button type="button" class="service-tab-btn tab-orange flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" aria-selected="false" id="btn-reputacion" data-target-tab="tab-reputacion" aria-controls="tab-reputacion">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">04</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Gestión <br class="hidden lg:block"> de Reputación</span>
+                                    </span>
+                                </button>
+                                <button type="button" class="service-tab-btn tab-blue flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" aria-selected="false" id="btn-crisis" data-target-tab="tab-crisis" aria-controls="tab-crisis">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">05</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Comunicación <br class="hidden lg:block"> de Crisis</span>
+                                    </span>
+                                </button>
+                                <button type="button" class="service-tab-btn tab-purple flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" aria-selected="false" id="btn-asuntos" data-target-tab="tab-asuntos" aria-controls="tab-asuntos">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">06</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Asuntos <br class="hidden lg:block"> Públicos</span>
+                                    </span>
+                                </button>
+                                <button type="button" class="service-tab-btn tab-green flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" aria-selected="false" id="btn-contenidos" data-target-tab="tab-contenidos" aria-controls="tab-contenidos">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">07</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Estrategia <br class="hidden lg:block"> de Contenidos</span>
+                                    </span>
+                                </button>
+                                <button type="button" class="service-tab-btn tab-orange flex-none w-[75vw] lg:w-auto snap-center whitespace-nowrap lg:whitespace-normal" role="tab" aria-selected="false" id="btn-monitoreo" data-target-tab="tab-monitoreo" aria-controls="tab-monitoreo">
+                                    <span class="mr-4 text-1xl opacity-40 font-mono">08</span>
+                                    <span class="flex flex-col gap-1">
+                                        <span>Monitoreo <br class="hidden lg:block"> y Análisis</span>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Indicador de progreso horizontal (Solo Mobile) -->
+                            <div class="relative w-full h-0.5 bg-white/5 mt-4 lg:hidden">
+                                <div id="service-tabs-dots" class="hidden">
+                                    <!-- Generados por JS -->
+                                    <button type="button" aria-label="Ir al servicio 1"></button><button type="button" aria-label="Ir al servicio 2"></button><button type="button" aria-label="Ir al servicio 3"></button><button type="button" aria-label="Ir al servicio 4"></button>
+                                    <button type="button" aria-label="Ir al servicio 5"></button><button type="button" aria-label="Ir al servicio 6"></button><button type="button" aria-label="Ir al servicio 7"></button><button type="button" aria-label="Ir al servicio 8"></button>
+                                </div>
+                                <div class="absolute top-0 left-0 h-full bg-luxus-blue transition-all duration-300" style="width: var(--timeline-progress-percent, 0%);"></div>
+                            </div>
+
+                            <div class="mt-6 pt-6 border-t border-white/5">
+                                <a href="contacto.html" class="btn-secondary w-full justify-center text-xs">Solicitar diagnóstico</a>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- CONTENIDO: Paneles Detallados -->
+                    <div class="lg:col-span-2 luxus-surface min-h-150 reveal d1">
+                        
+                        <!-- Pane 01: Institucional -->
+                        <div id="tab-institucional" class="tab-pane active" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/comunicacion-institucional.webp" alt="Comunicación Institucional" title="Servicio de Comunicación Institucional" width="1200" height="514"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="eager">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-blue flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>
+                                    <span>Comunicación <span class="text-accent-luxus-blue">Institucional</span></span>
+                                </h3>
+                                <p class="section-description mb-8 text-slate-300">
+                                    Diseñamos estrategias de comunicación para empresas, gobiernos, instituciones y organizaciones que necesitan transmitir con claridad quiénes son, qué hacen y cuál es su valor. Trabajamos sobre el mensaje, el tono, los canales y la coherencia general de la comunicación institucional.
+                                </p>
+                               
+                            </div>
+                        </div>
+
+                        <!-- Pane 02: Medios -->
+                        <div id="tab-medios" class="tab-pane" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/relacion-medios.webp" alt="Relaciones con Medios" title="Gestión de Medios y PR" width="1200" height="514"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="lazy">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>                            
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-purple flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                                    <span>Relaciones con <span class="text-accent-luxus-blue">Medios</span></span>
+                                </h3>
+                                <p class="section-description mb-8 text-slate-300">Gestionamos el vínculo con medios de comunicación, periodistas, editores y referentes del ecosistema informativo. Desarrollamos estrategias de prensa orientadas a generar presencia, visibilidad y posicionamiento en medios relevantes, cuidando siempre la consistencia del mensaje institucional.</p>
+                             
+                            </div>
+                        </div>
+
+                        <!-- Pane 03: Posicionamiento -->
+                        <div id="tab-posicionamiento" class="tab-pane" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/posicionamiento-estrategico.webp" alt="Posicionamiento Estratégico" title="Estrategia de Posicionamiento" width="1200" height="514"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="lazy">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>                            
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-green flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                    <span>Posicionamiento <span class="text-accent-luxus-blue">Estratégico</span></span>
+                                </h3>
+                                <p class="section-description text-slate-300">Acompañamos a organizaciones, referentes y proyectos en la construcción de una presencia pública sólida, coherente y creíble. Definimos mensajes clave, oportunidades de exposición, audiencias prioritarias y líneas de comunicación acordes a cada objetivo.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pane 04: Reputación -->
+                        <div id="tab-reputacion" class="tab-pane" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/gestion-reputacion.webp" alt="Gestión de Reputación"
+                                    title="Gestión de Reputación" width="1672" height="941"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="lazy">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>                            
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-orange flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    <span>Gestión de <span class="text-accent-luxus-blue">Reputación</span></span>
+                                </h3>
+                                <p class="section-description text-slate-300">Asesoramos en la construcción, cuidado y fortalecimiento de la reputación institucional. Identificamos riesgos, oportunidades y percepciones relevantes para ayudar a las organizaciones a consolidar confianza frente a sus públicos estratégicos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pane 05: Crisis -->
+                        <div id="tab-crisis" class="tab-pane" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/comunicacion-crisis.webp" alt="Comunicación de Crisis"
+                                    title="Comunicación de Crisis" width="1672" height="941"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="lazy">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>                            
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-blue flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                    <span>Comunicación <span class="text-accent-luxus-blue">de Crisis</span></span>
+                                </h3>
+                                <p class="section-description text-slate-300">Acompañamos a organizaciones en situaciones sensibles que requieren claridad, rapidez, prudencia y criterio. Trabajamos en la definición de mensajes, vocerías, escenarios posibles y estrategias de respuesta para proteger la reputación institucional.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pane 06: Asuntos Públicos -->
+                        <div id="tab-asuntos" class="tab-pane" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/asuntos-publicos.webp" alt="Asuntos Públicos"
+                                    title="Asuntos Públicos" width="1672" height="941"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="lazy">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>                            
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-purple flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+                                    <span>Asuntos <span class="text-accent-luxus-blue">Públicos</span></span>
+                                </h3>
+                                <p class="section-description text-slate-300">Colaboramos en la construcción de relaciones estratégicas con actores del sector público, privado, social e institucional. Nuestro enfoque busca facilitar el diálogo, generar confianza y fortalecer la presencia de la organización en su entorno de influencia.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pane 07: Contenidos -->
+                        <div id="tab-contenidos" class="tab-pane" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/estrategia-contenidos.webp" alt="Estrategia de Contenidos"
+                                    title="Estrategia de Contenidos" width="1672" height="941"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="lazy">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>                            
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-green flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                                    <span>Estrategia de <span class="text-accent-luxus-blue">Contenidos</span></span>
+                                </h3>
+                                <p class="section-description text-slate-300">Desarrollamos contenidos institucionales para distintos canales, cuidando la coherencia del mensaje, el tono y los objetivos de comunicación. El contenido no debe hablar por hablar: debe ordenar, posicionar y construir valor.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pane 08: Monitoreo -->
+                        <div id="tab-monitoreo" class="tab-pane" role="tabpanel">
+                            <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
+                                <img src="assets/img/monitoreo-analisis.webp" alt="Monitoreo y Análisis"
+                                    title="Monitoreo y Análisis" width="1672" height="941"
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="lazy">
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                            </div>                            
+                            <div class="p-8 lg:p-12">
+                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4 md:gap-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-orange flex-none w-8 h-8 md:w-10 md:h-10" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="M14 9h5v5"/></svg>
+                                    <span>Monitoreo <span class="text-accent-luxus-blue">y Análisis</span></span>
+                                </h3>
+                                <p class="section-description text-slate-300">Realizamos seguimiento de medios, análisis de contexto y evaluación de la presencia pública de organizaciones, temas o referentes. La información permite anticipar escenarios, ajustar mensajes y tomar mejores decisiones de comunicación.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN SECTORES -->
+        <section id="sectores" class="section-standard relative border-t border-white/5">
+            <div class="section-container">
+                <div class="max-w-3xl mb-16 reveal">
+                    <h2 class="section-title section-title-left mb-6">
+                        Sectores a los que <span class="text-accent-luxus-blue">acompañamos</span>
+                    </h2>
+                </div>
+
+                <div class="divide-y divide-white/5 border-y border-white/5">
+                    <article class="sector-row reveal">
+                        <div class="md:col-span-4">
+                            <h3 class="home-insight-title sector-heading">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>
+                                <span>Empresas</span>
+                            </h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="home-insight-copy sector-copy">Acompañamos a compañías que buscan consolidar su reputación, mejorar su relación con medios, ordenar su comunicación institucional o fortalecer su presencia pública.</p>
+                        </div>
+                    </article>
+
+                    <article class="sector-row reveal">
+                        <div class="md:col-span-4">
+                            <h3 class="home-insight-title sector-heading">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+                                <span>Gobierno</span>
+                            </h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="home-insight-copy sector-copy">Brindamos asesoramiento en comunicación institucional, gestión de mensajes, posicionamiento de gestión y vínculo con audiencias clave.</p>
+                        </div>
+                    </article>
+
+                    <article class="sector-row reveal">
+                        <div class="md:col-span-4">
+                            <h3 class="home-insight-title sector-heading">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>Instituciones</span>
+                            </h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="home-insight-copy sector-copy">Trabajamos con universidades, fundaciones, cámaras, asociaciones y organizaciones que necesitan comunicar su propósito, sus acciones y su impacto.</p>
+                        </div>
+                    </article>
+
+                    <article class="sector-row reveal">
+                        <div class="md:col-span-4">
+                            <h3 class="home-insight-title sector-heading">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                <span>Proyectos con exposición pública</span>
+                            </h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="home-insight-copy sector-copy">Acompañamos iniciativas que requieren estrategia, sensibilidad institucional y una correcta lectura del contexto público y mediático.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
+        <section class="relative isolate overflow-hidden">
+            <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
+            <include src="assets/partials/cta-home.html"></include>
+        </section>
+
+        <!-- CONTACTO -->
+        <section class="relative isolate overflow-hidden border-t border-white/5">
+            <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
+            <include src="assets/partials/form-section.html"></include>
+        </section>
+
+    </main>
+
+    <include src="assets/partials/footer-section.html"></include>
+
+    <script src="assets/js/scripts.js" type="module"></script>
+</body>
+</html>

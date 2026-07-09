@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
+    <title>Luxus Consultores | Comunicación con Criterio Estratégico</title>
+
+    <!-- Preload de activos críticos -->
+    <link rel="preload" href="assets/img/luxus.webp" as="image" type="image/webp" fetchpriority="high">
+
+    <meta name="description" content="Luxus Consultores: Especialistas en comunicación estratégica, reputación y asuntos públicos.">
+    <link rel="canonical" href="https://www.luxusconsultores.com/">
+
+    <meta property="og:title" content="Luxus Consultores | Comunicación con Criterio">
+    <meta property="og:description" content="Comunicación estratégica para construir reputación, autoridad pública y vínculos de valor.">
+    <meta property="og:image" content="https://www.luxusconsultores.com/assets/img/og-image.webp">
+    <meta property="og:type" content="website">
+
+    <!-- Las etiquetas SEO y Open Graph se inyectan dinámicamente vía scripts.js -->
+
+    <!-- Preconexiones y Estilos -->
+    <!-- Carga de fuentes asíncrona desde Google Fonts (Core Web Vitals Best Practice) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@500;600;700&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Datos Estructurados JSON-LD -->
+    <!-- Nota: El Schema de negocio y el SEO dinámico se inyectan vía scripts.js -->
+
+</head>
+
+<body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-blue); --atmosphere-color-alt: var(--color-luxus-purple);">
+    <main id="main-content" class="grow flex items-center">
+        <section class="w-full py-12 md:py-16" aria-labelledby="main-heading">
+            <div class="section-container grid grid-cols-1 items-center gap-y-12 gap-x-10 lg:grid-cols-2 lg:gap-x-16 xl:gap-x-20">
+                <div class="reveal max-w-3xl">
+                    <a href="home.html" class="mb-10 inline-block" aria-label="Volver al inicio">
+                        <img src="assets/img/luxus.webp" alt="luxus logo" role="presentation" width="223" height="42" fetchpriority="high"
+                            class="h-7 md:h-9 w-auto object-contain" loading="eager">
+                    </a>
+                    <h1 id="main-heading" class="hero-title mb-10">Comunicación con criterio estratégico</h1>
+                    <div class="pill-kicker mb-6">
+                        <span class="text-[13px] text-luxus-blue font-bold uppercase tracking-widest">Luxus Consultores</span>
+                    </div>
+                    <p class="section-description max-w-xl mb-0">Construimos reputación, posicionamiento público y vínculos estratégicos para organizaciones que buscan excelencia.</p>
+                </div>
+
+                <div class="reveal relative w-full max-w-xl lg:ml-auto">
+                    <div class="aric absolute inset-0 -z-10 m-auto h-full w-full rounded-full bg-luxus-blue/20 animate-aric-float" aria-hidden="true"></div>
+                    <div class="embedded-form-slot index-form-slot">
+                        <include src="assets/partials/form-section.html"></include>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/scripts.js" type="module"></script>
+</body>
+
+</html>
