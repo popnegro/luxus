@@ -1,0 +1,70 @@
+<section class="section-standard bg-slate-900/10">
+    <div class="section-container">
+        <div class="contact-surface-gradient form-shell p-6 md:p-10 lg:p-12 rounded-large max-w-2xl mx-auto reveal">
+            <div class="form-shell-header">
+                <h2 class="text-2xl md:text-2xl font-semibold text-white tracking-normal leading-tight">Contacto</h2>
+            </div>
+
+            <form id="leadForm" action="https://formspree.io/f/mojbejqq" method="POST" class="space-y-6">
+                <div class="hidden" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+                <input type="hidden" name="_subject" value="Nuevo Lead Index: Luxus Consultores">
+                <div id="lead-companyField" class="transition-all duration-500">
+                    <label for="lead-company" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Empresa / Organización <span aria-hidden="true">*</span></label>
+                    <input type="text" id="lead-company" name="company" required aria-required="true" aria-describedby="lead-company-error" autocomplete="organization" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 hover:border-white/20 outline-none transition-all text-white text-sm" placeholder="Ej: Luxus Consultores">
+                    <p id="lead-company-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div>
+                    <label for="lead-email" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Email <span aria-hidden="true">*</span></label>
+                    <input type="email" id="lead-email" name="email" required aria-required="true" aria-describedby="lead-email-error" autocomplete="email" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm" placeholder="nombre@empresa.com">
+                    <p id="lead-email-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div>
+                    <label for="lead-phone" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Teléfono <span aria-hidden="true">*</span></label>
+                    <input type="tel" id="lead-phone" name="phone" required aria-required="true" aria-describedby="lead-phone-error" autocomplete="tel" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm" placeholder="+54 9 261 123 4567">
+                    <p id="lead-phone-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div class="relative">
+                    <label for="lead-service" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Servicio de interés <span aria-hidden="true">*</span></label>
+                    <select id="lead-service" name="service" required aria-required="true" aria-describedby="lead-service-error" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm appearance-none cursor-pointer">
+                        <option value="" class="bg-slate-900" disabled selected>Elija un servicio</option>
+                        <option value="institucional" class="bg-slate-900">Comunicación Institucional</option>
+                        <option value="medios" class="bg-slate-900">Relaciones con Medios</option>
+                        <option value="reputacion" class="bg-slate-900">Gestión de Reputación</option>
+                        <option value="crisis" class="bg-slate-900">Comunicación de Crisis</option>
+                        <option value="asuntos" class="bg-slate-900">Asuntos Públicos</option>
+                        <option value="estrategia" class="bg-slate-900">Estrategia de Contenidos</option>
+                        <option value="posicionamiento" class="bg-slate-900">Posicionamiento Estratégico</option>
+                        <option value="analisis" class="bg-slate-900">Monitoreo y Análisis de Medios</option>
+                    </select>
+                    <div class="absolute right-5 top-10.5 pointer-events-none text-slate-300" aria-hidden="true">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="presentation"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <p id="lead-service-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div id="lead-messageField" class="hidden transition-all duration-500">
+                    <label for="lead-message" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Consulta <span aria-hidden="true">*</span></label>
+                    <textarea id="lead-message" name="message" required aria-required="true" aria-describedby="lead-message-error" rows="3" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm" placeholder="En qué podemos ayudarle..."></textarea>
+                    <p id="lead-message-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <button type="submit" id="lead-submitBtn" class="btn-primary w-full text-sm uppercase tracking-widest flex items-center justify-center gap-3">
+                    <span id="lead-btnText" aria-live="polite">Enviar consulta</span>
+                    <svg id="lead-btnSpinner" class="hidden animate-spin h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div id="lead-formStatus" class="fixed bottom-6 right-6 z-120 hidden opacity-0 translate-y-5 transition-all duration-500" role="status" aria-live="polite">
+    <div id="lead-statusBox" class="max-w-sm bg-slate-950/90 backdrop-blur-2xl border border-white/10 p-5 rounded-standard flex items-start gap-4 shadow-2xl pointer-events-auto">
+        <div id="lead-statusIcon" class="shrink-0 w-10 h-10 flex items-center justify-center rounded-standard bg-white/5 border border-white/10"></div>
+        <div class="grow pr-4">
+            <p id="lead-statusTitle" class="text-base font-bold text-white mb-1 tracking-normal"></p>
+            <p id="lead-statusMessage" class="text-slate-400 text-sm leading-relaxed"></p>
+        </div>
+        <button type="button" class="shrink-0 text-slate-500 hover:text-white transition-colors" aria-label="Cerrar notificación">×</button>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+import{defineConfig as t,renderStudio as o}from"sanity";import{structureTool as e}from"sanity/structure";import{visionTool as i}from"@sanity/vision";const s=[],r=t({name:"default",title:"Luxus Blog",projectId:"0otvx84b",dataset:"production",plugins:[e(),i()],schema:{types:s}});o(document.getElementById("sanity"),r,{reactStrictMode:!1,basePath:"/"});
