@@ -9,8 +9,8 @@ export default defineConfig({
   name: 'default',
   title: 'luxus',
 
-  projectId: 'tu-project-id', // Reemplaza con tu Project ID de Sanity
-  dataset: 'production',    // Reemplaza con el nombre de tu dataset
+  projectId: '0otvx84b',
+  dataset: 'production', // Este es el valor común, confírmalo en la página de Sanity
 
   plugins: [structureTool(), visionTool()],
 
