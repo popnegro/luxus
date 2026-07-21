@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/luxus/$1" }
-  ]
-}
