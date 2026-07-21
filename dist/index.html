@@ -1,289 +1,206 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/><meta content="noindex" name="robots"/><meta content="same-origin" name="referrer"/><link href="/static/favicon.ico" rel="icon" sizes="any"/><link href="/static/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/static/apple-touch-icon.png" rel="apple-touch-icon"/><link href="/static/manifest.webmanifest" rel="manifest"/><title>Sanity Studio</title><script>
-;(function () {
-  var _caughtErrors = []
+<!DOCTYPE html>
+<html lang="es">
 
-  var errorChannel = (function () {
-    var subscribers = []
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxus Consultores | Consultoría Estratégica de Autoridad</title>
+    <meta name="description"
+        content="Estrategia corporativa, reputación y asuntos públicos. Transformamos organizaciones con excelencia desde el Cono Sur.">
+    <link rel="canonical" href="https://www.luxusconsultores.com/index.html">
+    <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
 
-    function publish(msg) {
-      for (var i = 0; i < subscribers.length; i += 1) {
-        subscribers[i](msg)
-      }
-    }
+    <!-- Preload Hero Image for LCP Optimization -->
+    <link rel="preload" href="assets/img/relacion-medios.webp" as="image" type="image/webp"
+        fetchpriority="high">
 
-    function subscribe(subscriber) {
-      subscribers.push(subscriber)
+    <!-- Open Graph -->
+    <meta property="og:title" content="Luxus Consultores | Estrategia de Autoridad">
+    <meta property="og:image" content="https://www.luxusconsultores.com/assets/img/og-image.webp">
 
-      return function () {
-        var idx = subscribers.indexOf(subscriber)
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="assets/css/main.css?v=1780097835083">
+</head>
 
-        if (idx > -1) {
-          subscribers.splice(idx, 1)
-        }
-      }
-    }
+<body class="antialiased bg-radial-gradient min-h-screen flex flex-col"
+    style="--atmosphere-color: var(--color-luxus-green); --atmosphere-color-alt: var(--color-luxus-purple);">
 
-    return {publish, subscribe, subscribers}
-  })()
+    <div id="navigation-placeholder" data-fragment="assets/partials/navigation-section.html" data-fragment-load="critical"></div>
 
-  // NOTE: Store the error channel instance in the global scope so that the application can
-  // access it and subscribe to errors.
-  window.__sanityErrorChannel = {
-    subscribe: errorChannel.subscribe,
-  }
+    <main id="main-content" class="grow">
+        <!-- HERO INLINED (LCP FIX) -->
 
-  function _nextTick(callback) {
-    setTimeout(callback, 0)
-  }
+        <section id="hero" class="luxus-hero" aria-label="Luxus Consultores">
+            <div class="absolute inset-0 z-0" data-hero-carousel>
+                <div class="hero-carousel-slide is-active absolute inset-0" data-hero-slide>
+                    <img src="assets/img/relacion-medios.webp" alt="Consultoría estratégica y relación con medios" title="Luxus Consultores - Equipo de Estrategia" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" fetchpriority="high" loading="eager">
+                </div>
+                <div class="hero-carousel-slide absolute inset-0" data-hero-slide>
+                    <img src="assets/img/comunicacion-institucional.webp" alt="Comunicación institucional" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" loading="lazy" title="Comunicacion institucional">
+                </div>
+                <div class="hero-carousel-slide absolute inset-0" data-hero-slide>
+                    <img src="assets/img/posicionamiento-estrategico.webp" alt="Posicionamiento estratégico" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" loading="lazy" title="Posicionamiento estrategico">
+                </div>
+                <div class="hero-carousel-slide absolute inset-0" data-hero-slide>
+                    <img src="assets/img/gestion-reputacion.webp" alt="Gestión de reputación corporativa" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" loading="lazy" title="Gestion reputacion">
+                </div>
+                <div aria-hidden="true" class="luxus-hero-blob"></div>
+                <div class="absolute inset-0 bg-linear-to-b bg-transparent via-slate-950/10 to-slate-950"></div>
+            </div>
 
-  function _handleError(error, params) {
-    _nextTick(function () {
-      // - If there are error channel subscribers, then we notify them (no console error).
-      // - If there are no subscribers, then we log the error to the console and render the error overlay.
-      if (errorChannel.subscribers.length) {
-        errorChannel.publish({error, params})
-      } else {
-        console.error(error)
+            <div class="section-container relative z-10">
+                <div class="max-w-4xl reveal group">
+                     <div class="pill-kicker mb-6">
+                        <span class="text-[13px] text-luxus-blue font-bold uppercase tracking-widest">Luxus Consultores</span>
+                    </div> 
+                    <h1 class="hero-title mx-auto mb-8 text-balance reveal d2">
+                        Comunicación con <span class="text-accent-luxus-blue">criterio estratégico</span>
+                    </h1>
+                    <div class="reveal d3 flex flex-wrap gap-4">
+                        <a href="contacto.html" class="btn-primary w-full md:w-auto">Solicitar una reunión</a>
+                        <a href="servicios.html" class="btn-secondary w-full md:w-auto">Conocer servicios</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        _renderErrorOverlay(error, params)
-      }
-    })
-  }
+        <section class="section-standard relative isolate overflow-hidden py-20 lg:py-28">
+            <div class="section-container">
+                <div class="max-w-4xl mb-10 lg:mb-12 reveal">
+                    <h2 class="section-title section-title-left">Luxus <span class="text-luxus-blue">Consultores</span></h2>
+                </div>
+                
+                <!-- Panel de Cards Estilo Luxus -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+                    <!-- Card 1: Empresas -->
+                    <article class="luxus-card home-insight-card group reveal">
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="home-insight-meta">
+                                <span>01</span>
+                                <span>Identidad</span>
+                            </div>
+                            <div class="home-insight-icon text-luxus-blue" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/></svg>
+                            </div>
+                            <h3 class="home-insight-title">
+                                <span>¿Quiénes somos?</span>
+                            </h3>
+                            <p class="home-insight-copy">
+                                Somos una consultora especializada en comunicación institucional, relaciones con medios y posicionamiento estratégico.
+                            </p>
+                            <a href="nosotros.html" class="home-insight-link">
+                                Conocer Luxus <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+                
+                    <!-- Card 2: Gobierno -->
+                    <article class="luxus-card home-insight-card group reveal d1">
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="home-insight-meta">
+                                <span>02</span>
+                                <span>Audiencias</span>
+                            </div>
+                            <div class="home-insight-icon text-luxus-green" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <h3 class="home-insight-title">
+                                <span>¿Con quién trabajamos?</span>
+                            </h3>
+                            <p class="home-insight-copy">
+                                Acompañamos a empresas, gobiernos e instituciones que necesitan reputación, mensajes claros y vínculos sólidos.
+                            </p>
+                            <a href="servicios.html" class="home-insight-link">
+                                Ver servicios <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+                
+                    <!-- Card 3: Instituciones y Proyectos -->
+                    <article class="luxus-card home-insight-card group reveal d2">
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="home-insight-meta">
+                                <span>03</span>
+                                <span>Método</span>
+                            </div>
+                            <div class="home-insight-icon text-luxus-purple" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="M14 9h5v5"/></svg>
+                            </div>
+                            <h3 class="home-insight-title">
+                                <span>¿Cómo lo hacemos?</span>
+                            </h3>
+                            <p class="home-insight-copy">
+                                Combinamos análisis, criterio editorial y ejecución táctica para comunicar con precisión, oportunidad y coherencia.
+                            </p>
+                            <a href="metodologia.html" class="home-insight-link">
+                                Ver metodología <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                </div>
+                </section>
 
-  var ERROR_BOX_STYLE = [
-    'background: #fff',
-    'border-radius: 6px',
-    'box-sizing: border-box',
-    'color: #121923',
-    'flex: 1',
-    "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue','Liberation Sans',Helvetica,Arial,system-ui,sans-serif",
-    'font-size: 16px',
-    'line-height: 21px',
-    'margin: 0 auto',
-    'max-width: 960px',
-    'max-height: 90dvh',
-    'overflow: auto',
-    'padding: 20px',
-    'width: 100%',
-  ].join(';')
+       
 
-  var ERROR_CODE_STYLE = [
-    'color: #972E2A',
-    "font-family: -apple-system-ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace",
-    'font-size: 13px',
-    'line-height: 17px',
-    'margin: 0',
-  ].join(';')
+         <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
+        <section class="relative isolate overflow-hidden">
+            <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
+            <div id="cards-services-placeholder" data-fragment="assets/partials/cards-services-section.html" data-fragment-load="critical"></div>
+        </section>
 
-  function _renderErrorOverlay(error, params) {
-    var errorElement = document.querySelector('#__sanityError') || document.createElement('div')
-    var colno = params.event.colno
-    var lineno = params.event.lineno
-    var filename = params.event.filename
+         <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
+        <section class="relative isolate overflow-hidden">
+            <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
+            <div id="cta-placeholder" data-fragment="assets/partials/cta-home.html" data-fragment-load="critical"></div>
+        </section>
 
-    errorElement.id = '__sanityError'
-    errorElement.innerHTML = [
-      '<div style="' + ERROR_BOX_STYLE + '">',
-      '<div style="font-weight: 700;">Uncaught error: ' + error.message + '</div>',
-      '<div style="color: #515E72; font-size: 13px; line-height: 17px; margin: 10px 0;">' +
-        filename +
-        ':' +
-        lineno +
-        ':' +
-        colno +
-        '</div>',
-      '<pre style="' + ERROR_CODE_STYLE + '">' + error.stack + '</pre>',
-      '</div>',
-    ].join('')
+     
 
-    errorElement.style.position = 'fixed'
-    errorElement.style.zIndex = 1000000
-    errorElement.style.top = 0
-    errorElement.style.left = 0
-    errorElement.style.right = 0
-    errorElement.style.bottom = 0
-    errorElement.style.padding = '20px'
-    errorElement.style.background = 'rgba(16,17,18,0.66)'
-    errorElement.style.display = 'flex'
-    errorElement.style.alignItems = 'center'
-    errorElement.style.justifyContent = 'center'
+    </main>
 
-    document.body.appendChild(errorElement)
-  }
+    <div id="footer-placeholder" data-fragment="assets/partials/footer-section.html" data-fragment-load="critical"></div>
 
-  // NOTE:
-  // Yes – we're attaching 2 error listeners below 👀
-  // This is because React makes the same error throw twice (in development mode).
-  // See: https://github.com/facebook/react/issues/10384
+    <script src="assets/js/form-handler.js?v=1780097835083"></script>
+    <script src="assets/js/scripts.js?v=1780097835083"></script>
+    <script>
+        (() => {
+            const carousel = document.querySelector('[data-hero-carousel]');
+            const hero = document.getElementById('hero');
+            const slides = Array.from(document.querySelectorAll('[data-hero-slide]'));
+            if (!carousel || !hero || slides.length < 2) return;
 
-  // Error listener #1
-  window.onerror = function (event, source, lineno, colno, error) {
-    _nextTick(function () {
-      if (_caughtErrors.indexOf(error) !== -1) return
+            let activeIndex = 0;
+            let timerId;
 
-      _caughtErrors.push(error)
+            const setActive = (index) => {
+                activeIndex = (index + slides.length) % slides.length;
+                slides.forEach((slide, slideIndex) => {
+                    slide.classList.toggle('is-active', slideIndex === activeIndex);
+                });
+            };
 
-      _handleError(error, {
-        event,
-        lineno,
-        colno,
-        source,
-      })
+            const stop = () => window.clearInterval(timerId);
+            const start = () => {
+                stop();
+                timerId = window.setInterval(() => setActive(activeIndex + 1), 5500);
+            };
+            hero.addEventListener('mouseenter', stop);
+            hero.addEventListener('mouseleave', start);
+            hero.addEventListener('focusin', stop);
+            hero.addEventListener('focusout', start);
+            start();
+        })();
+    </script>
+</body>
 
-      _nextTick(function () {
-        var idx = _caughtErrors.indexOf(error)
-
-        if (idx > -1) _caughtErrors.splice(idx, 1)
-      })
-    })
-
-    // IMPORTANT: this callback must return `true` to prevent the error from being rendered in
-    // the browser’s console.
-    return true
-  }
-
-  // Error listener #2
-  window.addEventListener('error', function (event) {
-    if (_caughtErrors.indexOf(event.error) !== -1) return true
-
-    _caughtErrors.push(event.error)
-
-    _handleError(event.error, {
-      event,
-      lineno: event.lineno,
-      colno: event.colno,
-    })
-
-    _nextTick(function () {
-      _nextTick(function () {
-        var idx = _caughtErrors.indexOf(event.error)
-
-        if (idx > -1) _caughtErrors.splice(idx, 1)
-      })
-    })
-
-    return true
-  })
-})()
-</script><style>
-  @font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-Regular.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-Italic.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-Medium.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 500;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-MediumItalic.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-SemiBold.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 600;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-SemiBoldItalic.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-Bold.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 700;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-BoldItalic.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-ExtraBold.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 800;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-ExtraBoldItalic.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 900;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-Black.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 900;
-    font-display: swap;
-    src: url("https://studio-static.sanity.io/Inter-BlackItalic.woff2") format("woff2");
-  }
-  html {
-    @media (prefers-color-scheme: dark) {
-      background-color: #13141b;
-    }
-    @media (prefers-color-scheme: light) {
-      background-color: #ffffff;
-    }
-  }
-  html,
-  body,
-  #sanity {
-    height: 100%;
-  }
-  body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-  }
-</style><script src="https://core.sanity-cdn.com/bridge.js" async type="module" data-sanity-core></script>
-</head><body><div id="sanity"></div><script src="/static/sanity-ihyCqZlN.js" type="module"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
-.sanity-app-no-js__root {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: #fff;
-}
-
-.sanity-app-no-js__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-family: helvetica, arial, sans-serif;
-}
-</style><h1>JavaScript disabled</h1><p>Please <a href="https://www.enable-javascript.com/">enable JavaScript</a> in your browser and reload the page to proceed.</p></div></div></noscript></body></html>
+</html>
