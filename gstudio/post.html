@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="assets/img/favicon.webp" fetchpriority="high">
+
+    <!-- SEO Base (Fallback) -->
+    <title>Artículo | Luxus Consultores</title>
+    <meta name="description" content="Artículo de pensamiento estratégico y comunicación institucional.">
+    <link rel="canonical" href="https://www.luxusconsultores.com/post.html">
+
+    <!-- Open Graph (Fallback) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Artículo | Luxus Consultores">
+    <meta property="og:image" content="https://www.luxusconsultores.com/assets/img/og-image.webp">
+
+    <!-- Preconexiones y Estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" defer></script>
+    <link rel="stylesheet" href="assets/css/main.css?v=1780097835083">
+
+</head>
+<body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-purple); --atmosphere-color-alt: var(--color-luxus-orange);">
+
+    <div id="navigation-placeholder" data-fragment="assets/partials/navigation-section.html" data-fragment-load="critical"></div>
+
+    <!-- Barra de progreso de lectura -->
+    <div class="reading-progress-container" aria-hidden="true">
+        <div id="reading-progress-bar" class="reading-progress-bar"></div>
+    </div>
+
+    <main id="main-content" class="grow">
+        <!-- HERO DEL ARTÍCULO -->
+        <section class="luxus-hero post-hero min-h-auto! pb-16">
+            <div aria-hidden="true" class="luxus-hero-blob"></div>
+            <div class="section-container relative z-10">
+                <div id="breadcrumb-placeholder"></div>
+                <header class="reveal max-w-5xl">
+                    <span class="section-kicker text-luxus-purple block mb-5">Artículo</span>
+                    <h1 id="post-title" class="hero-title mb-6"></h1>
+                    <div class="post-meta-row">
+                        <time id="post-date" class="text-xs text-slate-500 uppercase tracking-widest font-medium"></time>
+                        <span id="post-category" class="post-category-chip hidden"></span>
+                    </div>
+                </header>
+            </div>
+        </section>
+
+        <section class="section-standard post-reading-section relative isolate">
+            <div class="section-container">
+                <article class="post-article max-w-4xl mx-auto">
+                    <!-- Imagen Principal -->
+                    <div class="aspect-video mb-16 rounded-large overflow-hidden border border-white/10 skeleton reveal">
+                        <img id="post-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Artículo Luxus" title="Cargando artículo..." width="1200" height="675" class="img-grayscale-reveal" loading="eager" fetchpriority="high">
+                    </div>
+
+                    <!-- Contenido del Post -->
+                    <div id="post-content" class="section-description text-slate-300 reveal space-y-8">
+                        <div class="h-4 w-full skeleton rounded-standard"></div>
+                        <div class="h-4 w-5/6 skeleton rounded-standard"></div>
+                        <div class="h-4 w-full skeleton rounded-standard"></div>
+                        <div class="h-4 w-4/6 skeleton rounded-standard"></div>
+                    </div>
+
+                    <!-- Footer del Artículo -->
+                    <footer class="post-article-footer mt-20 pt-10 border-t border-white/5 reveal">
+                        <div class="post-cta-card">
+                            <div>
+                                <span class="section-kicker text-luxus-blue">Próximo paso</span>
+                                <h2 class="mt-3 text-2xl md:text-3xl font-semibold text-white tracking-normal">Convirtamos esta lectura en una decisión.</h2>
+                                <p class="body-small mt-4 max-w-2xl">Si su organización atraviesa un desafío de reputación, medios o asuntos públicos, podemos ordenar el diagnóstico y definir un camino de acción.</p>
+                            </div>
+                            <div class="post-cta-actions">
+                                <a href="contacto.html" class="btn-primary">Solicitar diagnóstico</a>
+                                <a href="servicios.html" class="btn-secondary">Ver servicios</a>
+                            </div>
+                        </div>
+                        <div class="post-share-row">
+                            <a href="blog.html" class="text-slate-400 hover:text-luxus-blue transition-colors text-xs uppercase tracking-widest font-bold">Otros artículos</a>
+                            <div class="flex gap-5">
+                                <span class="text-micro text-slate-500 uppercase font-bold">Compartir:</span>
+                                <a id="share-linkedin" href="#" class="text-slate-400 hover:text-luxus-blue transition-colors text-xs uppercase tracking-widest font-bold">LinkedIn</a>
+                                <a id="share-x" href="#" class="text-slate-400 hover:text-luxus-blue transition-colors text-xs uppercase tracking-widest font-bold">X</a>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+
+        <!-- Artículos Relacionados -->
+        <section id="related-posts-section" class="section-standard border-t border-white/5 hidden relative isolate">
+            <div class="aric animate-aric-float absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-luxus-purple/5 rounded-full pointer-events-none -z-10 blur-3xl"></div>
+            <div class="section-container">
+                <h2 class="section-title section-title-left mb-12">Artículos <span class="text-accent-luxus-blue">relacionados</span></h2>
+                <div id="related-posts-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Contenido inyectado dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <div id="footer-placeholder" data-fragment="assets/partials/footer-section.html" data-fragment-load="critical"></div>
+
+    <script src="assets/js/form-handler.js?v=1780097835083"></script>
+    <script src="assets/js/scripts.js?v=1780097835083"></script>
+    <script src="assets/js/post-loader.js?v=1780097835083"></script>
+</body>
+</html>

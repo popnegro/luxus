@@ -1,0 +1,41 @@
+{
+  "name": "luxus",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Repositorio para refactorizar",
+  "main": "package.json",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^2.17.2",
+    "@sanity/vision": "^5.14.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-is": "^19.2.0",
+    "sanity": "^5.14.1",
+    "styled-components": "^6.1.11"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^4.0.0",
+    "@types/react": "^18.3.3",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build required, server.js starts the static appdirectly'",
+    "lint": "echo 'No lint required'",
+    "deploy": "sanity deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/popnegro/luxus/issues"
+  },
+  "homepage": "https://github.com/popnegro/luxus#readme"
+}
