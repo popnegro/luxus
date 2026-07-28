@@ -1,0 +1,11 @@
+# https://www.luxusconsultores.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Evitar la indexación de archivos de configuración o temporales si existieran
+Disallow: /npm-debug.log
+Disallow: /node_modules/
+
+# Ubicación del Sitemap para optimizar el rastreo
+Sitemap: https://www.luxusconsultores.com/sitemap.xml

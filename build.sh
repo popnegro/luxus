@@ -31,29 +31,34 @@ mkdir -p "$DIST_DIR/assets/js"
 mkdir -p "$DIST_DIR/assets/img"
 mkdir -p "$DIST_DIR/assets/partials"
 
-# 3. Copia archivos HTML, imágenes y parciales
+# 3. Copia archivos HTML, imágenes, parciales y archivos de SEO
 echo "📦 Copiando archivos del proyecto..."
 cp *.html "$DIST_DIR/"
+cp robots.txt "$DIST_DIR/" 2>/dev/null || true
+cp sitemap.xml "$DIST_DIR/" 2>/dev/null || true
 cp -R assets/img/* "$DIST_DIR/assets/img/"
 cp -R assets/partials/* "$DIST_DIR/assets/partials/"
+
+# 3b. Pre-renderiza los fragmentos HTML en el directorio de distribución
+node compile-fragments.js
 
 # 4. Minimiza y copia archivos CSS
 echo "💅 Minimizando archivos CSS..."
 for file in assets/css/*.css; do
-  npx clean-css-cli "$file" -o "$DIST_DIR/assets/css/$(basename "$file")"
+  cleancss "$file" -o "$DIST_DIR/assets/css/$(basename "$file")"
 done
 
 # 5. Minimiza y copia archivos JavaScript
 echo "📜 Minimizando archivos JavaScript..."
 for file in assets/js/*.js; do
-  npx terser "$file" -o "$DIST_DIR/assets/js/$(basename "$file")" -c -m
+  terser "$file" -o "$DIST_DIR/assets/js/$(basename "$file")" -c -m
 done
 
 # 6. Extrae e incrusta el CSS crítico para acelerar el renderizado
 echo "⚡ Optimizando CSS crítico..."
 for file in "$DIST_DIR"/*.html; do
   echo "   - Procesando $file"
-  npx critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$file" >/dev/null 2>&1
+  critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$file" >/dev/null 2>&1
 done
 
 

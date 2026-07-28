@@ -21,14 +21,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
             rel="stylesheet">
     </noscript>
     <link rel="stylesheet" href="assets/css/main.css?v=1780097835083">
+
+    <!-- Structured Data (JSON-LD) for Local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Luxus Consultores",
+      "image": "https://www.luxusconsultores.com/assets/img/og-image.webp",
+      "@id": "https://www.luxusconsultores.com/#organization",
+      "url": "https://www.luxusconsultores.com/",
+      "email": "info@luxusconsultores.com",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mendoza",
+        "addressRegion": "Mendoza",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -32.889458,
+        "longitude": -68.845838
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "description": "Estrategia de autoridad y gestión de activos intangibles con rigor metodológico. Consultoría estratégica, reputación, asuntos públicos y comunicación de crisis.",
+      "knowsAbout": [
+        "Comunicación Institucional",
+        "Gestión de Crisis",
+        "Asuntos Públicos",
+        "Reputación Corporativa",
+        "Relación con Medios",
+        "Posicionamiento Estratégico",
+        "Estrategia de Contenidos",
+        "Monitoreo y Análisis"
+      ]
+    }
+    </script>
 </head>
 
 <body class="antialiased bg-radial-gradient min-h-screen flex flex-col"
@@ -42,16 +90,16 @@
         <section id="hero" class="luxus-hero" aria-label="Luxus Consultores">
             <div class="absolute inset-0 z-0" data-hero-carousel>
                 <div class="hero-carousel-slide is-active absolute inset-0" data-hero-slide>
-                    <img src="assets/img/relacion-medios.webp" alt="Consultoría estratégica y relación con medios" title="Luxus Consultores - Equipo de Estrategia" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" fetchpriority="high" loading="eager">
+                    <img src="assets/img/relacion-medios.webp" alt="Consultoría estratégica y relación con medios" title="Luxus Consultores - Equipo de Estrategia" width="1260" height="840" class="w-full h-full object-cover opacity-15 bg-slate-900/10" fetchpriority="high" loading="eager" style="opacity: 0.15;">
                 </div>
                 <div class="hero-carousel-slide absolute inset-0" data-hero-slide>
-                    <img src="assets/img/comunicacion-institucional.webp" alt="Comunicación institucional" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" loading="lazy" title="Comunicacion institucional">
+                    <img src="assets/img/comunicacion-institucional.webp" alt="Comunicación institucional" width="1260" height="840" class="w-full h-full object-cover opacity-15 bg-slate-900/10" loading="lazy" title="Comunicacion institucional" style="opacity: 0.15;">
                 </div>
                 <div class="hero-carousel-slide absolute inset-0" data-hero-slide>
-                    <img src="assets/img/posicionamiento-estrategico.webp" alt="Posicionamiento estratégico" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" loading="lazy" title="Posicionamiento estrategico">
+                    <img src="assets/img/posicionamiento-estrategico.webp" alt="Posicionamiento estratégico" width="1260" height="840" class="w-full h-full object-cover opacity-15 bg-slate-900/10" loading="lazy" title="Posicionamiento estrategico" style="opacity: 0.15;">
                 </div>
                 <div class="hero-carousel-slide absolute inset-0" data-hero-slide>
-                    <img src="assets/img/gestion-reputacion.webp" alt="Gestión de reputación corporativa" width="1260" height="840" class="w-full h-full object-cover opacity-20 bg-slate-900/10" loading="lazy" title="Gestion reputacion">
+                    <img src="assets/img/gestion-reputacion.webp" alt="Gestión de reputación corporativa" width="1260" height="840" class="w-full h-full object-cover opacity-15 bg-slate-900/10" loading="lazy" title="Gestion reputacion" style="opacity: 0.15;">
                 </div>
                 <div aria-hidden="true" class="luxus-hero-blob"></div>
                 <div class="absolute inset-0 bg-linear-to-b bg-transparent via-slate-950/10 to-slate-950"></div>
@@ -59,11 +107,12 @@
 
             <div class="section-container relative z-10">
                 <div class="max-w-4xl reveal group">
-                     <div class="pill-kicker mb-6">
-                        <span class="text-[13px] text-luxus-blue font-bold uppercase tracking-widest">Luxus Consultores</span>
+                    <div class="pill-kicker mb-6 inline-flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-luxus-blue animate-pulse shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
+                        <h2 class="text-[11px] text-luxus-blue font-semibold uppercase tracking-[0.22em] leading-none">Luxus Consultores</h2>
                     </div> 
-                    <h1 class="hero-title mx-auto mb-8 text-balance reveal d2">
-                        Comunicación con <span class="text-accent-luxus-blue">criterio estratégico</span>
+                    <h1 class="hero-title mx-auto mb-8 text-balance reveal d2 tracking-[-0.035em] leading-[1.05] text-slate-300">
+                        Comunicación con <span class="font-extrabold text-white block sm:inline sm:text-accent-luxus-blue mt-1 sm:mt-0">criterio estratégico</span>
                     </h1>
                     <div class="reveal d3 flex flex-wrap gap-4">
                         <a href="contacto.html" class="btn-primary w-full md:w-auto">Solicitar una reunión</a>
@@ -153,16 +202,22 @@
        
 
          <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
-        <section class="relative isolate overflow-hidden">
+        <div class="relative isolate overflow-hidden">
             <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
             <div id="cards-services-placeholder" data-fragment="assets/partials/cards-services-section.html" data-fragment-load="critical"></div>
-        </section>
+        </div>
+
+         <!-- PREGUNTAS FRECUENTES (FAQ) -->
+        <div class="relative isolate overflow-hidden">
+            <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
+            <div id="faq-placeholder" data-fragment="assets/partials/faq-section.html" data-fragment-load="lazy"></div>
+        </div>
 
          <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
-        <section class="relative isolate overflow-hidden">
+        <div class="relative isolate overflow-hidden">
             <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
             <div id="cta-placeholder" data-fragment="assets/partials/cta-home.html" data-fragment-load="critical"></div>
-        </section>
+        </div>
 
      
 

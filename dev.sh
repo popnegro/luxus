@@ -11,10 +11,6 @@
 #
 # Uso:
 #   ./dev.sh
-#
-# Requisitos:
-#   - Node.js y npm instalados.
-#   - `nodemon` y `live-server` instalados globalmente (`npm install -g nodemon live-server`).
 # ==============================================================================
 
 # Detiene los procesos en segundo plano cuando el script se cierra

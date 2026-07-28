@@ -17,13 +17,104 @@
     <!-- Preconexiones y Estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" defer></script>
+
+    <!-- Datos Estructurados para Servicios -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Luxus Consultores",
+      "description": "Consultoría estratégica en comunicación, reputación y asuntos públicos.",
+      "url": "https://www.luxusconsultores.com/servicios.html",
+      "provider": {
+        "@type": "Organization",
+        "name": "Luxus Consultores"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Consultoría Estratégica",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Comunicación Institucional" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Relaciones con Medios" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Posicionamiento Estratégico" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Gestión de Reputación" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Comunicación de Crisis" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Asuntos Públicos" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Estrategia de Contenidos" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Monitoreo y Análisis" }
+          }
+        ]
+      }
+    }
+    </script>
+
     <link rel="stylesheet" href="assets/css/main.css?v=1780097835083">
 </head>
 
 <body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-blue); --atmosphere-color-alt: var(--color-luxus-green);">
-    <div id="navigation-placeholder" data-fragment="assets/partials/navigation-section.html" data-fragment-load="critical"></div>
+    <div id="navigation-placeholder">
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+<header id="siteHeader" class="header-nav">
+    <div class="section-container nav-shell flex justify-between items-center">
+        <a href="index.html" class="flex items-center group/logo" aria-label="Luxus Inicio">
+            <img id="main-logo" src="assets/img/luxus.webp" alt="Luxus Consultores" title="Luxus Consultores" width="223" height="42" class="h-6 md:h-8 w-auto object-contain transition-all duration-500 group-hover/logo:brightness-110" loading="eager" fetchpriority="high">
+        </a>
+
+        <nav id="primaryNavigation" class="hidden lg:flex items-center gap-7 xl:gap-10" aria-label="Navegación principal">
+            <a href="index.html" class="desktop-nav-link">Inicio</a>
+            <a href="nosotros.html" class="desktop-nav-link">Nosotros</a>
+            <a href="servicios.html" class="desktop-nav-link">Servicios</a>
+            <a href="metodologia.html" class="desktop-nav-link">Metodología</a>
+            <a href="blog.html" class="desktop-nav-link">Blog</a>
+            <a href="contacto.html" class="btn-outlined ml-4 xl:ml-6">Contacto</a>
+        </nav>
+
+        <button id="mobileMenuTrigger" type="button" class="mobile-hamburger-btn" aria-label="Abrir menú" aria-controls="mobileMenu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+</header>
+
+<div id="mobileMenu" class="mobile-menu-container hidden" aria-modal="true" role="dialog" aria-label="Menú de navegación" tabindex="-1">
+    <nav class="flex flex-col items-center gap-4" aria-label="Navegación móvil principal">
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="nosotros.html" class="mobile-nav-link">Nosotros</a>
+        <a href="servicios.html" class="mobile-nav-link">Servicios</a>
+        <a href="metodologia.html" class="mobile-nav-link">Metodología</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+    </nav>
+</div>
+
+</div>
     <main id="main-content">
         <!-- HERO UNIFICADO -->
         <section class="luxus-hero">
@@ -36,9 +127,9 @@
                     <div class="reveal order-1 mt-0">
                         <div id="breadcrumb-placeholder"></div>
                        
-                        <h1 class="hero-title mb-8 text-balance d2">
+                        <h2 class="hero-title mb-8 text-balance d2">
                             Lideramos la <span class="text-accent-luxus-blue">conversación</span> institucional.
-                        </h1>
+                        </h2>
                         <div class="flex flex-wrap gap-4 d3 mt-8">
                             <a href="contacto.html" class="btn-primary w-full md:w-auto">Solicitar diagnóstico</a>
                         </div>
@@ -60,40 +151,57 @@
                 <div class="grid grid-cols-1 items-start gap-(--element-gap-base) lg:grid-cols-12">
                     
                     <aside class="lg:col-span-4 lg:sticky lg:top-25 reveal" aria-label="Explorador de servicios">
-                        <div class="luxus-surface bg-slate-900/20! p-6 lg:p-8">
-                            <header class="mb-6">
-                                <h2 class="text-2xl font-medium text-white tracking-tight">Servicios de consultoría</h2>
+                        <div class="luxus-surface p-6 lg:p-8 border border-white/5 bg-slate-950/40 backdrop-blur-md shadow-2xl relative overflow-hidden rounded-2xl">
+                            <!-- Glowing background lights following the atmosphere language of Luxus -->
+                            <div class="absolute -top-12 -left-12 w-32 h-32 bg-luxus-blue/5 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+                            <div class="absolute -bottom-16 -right-16 w-36 h-36 bg-luxus-purple/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+                            <header class="mb-8 relative z-10 border-b border-white/5 pb-5">
+                                <span class="section-kicker text-luxus-blue text-[10px] tracking-[0.2em] uppercase font-bold block mb-1">Especialidades</span>
+                                <h1 class="text-2xl font-bold text-white tracking-tight font-poppins">Nuestros Servicios</h1>
+                                <p class="text-slate-400 mt-1.5 text-xs leading-relaxed">Explore nuestras áreas de consultoría estratégica y comunicación corporativa.</p>
                             </header>
 
-                            <nav id="serviceTabs" class="grid grid-cols-2 gap-2" role="tablist" aria-label="Servicios especializados">
-                                <button type="button" class="service-tab-btn active" role="tab" id="btn-institucional" aria-selected="true" aria-controls="tab-institucional" data-target-tab="tab-institucional">
-                                    <span class="service-tab-label">Comunicación Institucional</span>
+                            <nav id="serviceTabs" class="flex flex-row overflow-x-auto whitespace-nowrap gap-3 pb-4 pt-2 -mx-6 px-6 lg:mx-0 lg:px-0 lg:flex lg:flex-col lg:gap-0 lg:pb-0 lg:pt-0 relative z-10 scrollbar-none snap-x snap-mandatory scroll-smooth" role="tablist" aria-label="Servicios especializados">
+                                <button type="button" class="service-tab-btn active tab-blue group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" id="btn-institucional" aria-selected="true" aria-controls="tab-institucional" data-target-tab="tab-institucional">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-blue group-aria-selected:text-white transition-colors duration-300">01</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Comunicación Institucional</span>
                                 </button>
-                                <button type="button" class="service-tab-btn" role="tab" id="btn-medios" aria-selected="false" aria-controls="tab-medios" data-target-tab="tab-medios">
-                                    <span class="service-tab-label">Relación con Medios</span>
+                                <button type="button" class="service-tab-btn tab-purple group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" id="btn-medios" aria-selected="false" aria-controls="tab-medios" data-target-tab="tab-medios">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-purple group-aria-selected:text-white transition-colors duration-300">02</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Relación con Medios</span>
                                 </button>
-                                <button type="button" class="service-tab-btn" role="tab" aria-selected="false" aria-controls="tab-posicionamiento" id="btn-posicionamiento" data-target-tab="tab-posicionamiento">
-                                    <span class="service-tab-label">Posicionamiento</span>
+                                <button type="button" class="service-tab-btn tab-green group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" aria-selected="false" aria-controls="tab-posicionamiento" id="btn-posicionamiento" data-target-tab="tab-posicionamiento">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-green group-aria-selected:text-white transition-colors duration-300">03</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Posicionamiento</span>
                                 </button>
-                                <button type="button" class="service-tab-btn" role="tab" aria-selected="false" aria-controls="tab-reputacion" id="btn-reputacion" data-target-tab="tab-reputacion">
-                                    <span class="service-tab-label">Reputación</span>
+                                <button type="button" class="service-tab-btn tab-orange group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" aria-selected="false" aria-controls="tab-reputacion" id="btn-reputacion" data-target-tab="tab-reputacion">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-orange group-aria-selected:text-white transition-colors duration-300">04</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Reputación</span>
                                 </button>
-                                <button type="button" class="service-tab-btn" role="tab" aria-selected="false" aria-controls="tab-crisis" id="btn-crisis" data-target-tab="tab-crisis">
-                                    <span class="service-tab-label">Crisis</span>
+                                <button type="button" class="service-tab-btn tab-orange group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" aria-selected="false" aria-controls="tab-crisis" id="btn-crisis" data-target-tab="tab-crisis">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-orange group-aria-selected:text-white transition-colors duration-300">05</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Crisis</span>
                                 </button>
-                                <button type="button" class="service-tab-btn" role="tab" aria-selected="false" aria-controls="tab-asuntos" id="btn-asuntos" data-target-tab="tab-asuntos">
-                                    <span class="service-tab-label">Asuntos Públicos</span>
+                                <button type="button" class="service-tab-btn tab-blue group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" aria-selected="false" aria-controls="tab-asuntos" id="btn-asuntos" data-target-tab="tab-asuntos">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-blue group-aria-selected:text-white transition-colors duration-300">06</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Asuntos Públicos</span>
                                 </button>
-                                <button type="button" class="service-tab-btn" role="tab" aria-selected="false" aria-controls="tab-contenidos" id="btn-contenidos" data-target-tab="tab-contenidos">
-                                    <span class="service-tab-label">Estrategia de Contenidos</span>
+                                <button type="button" class="service-tab-btn tab-purple group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" aria-selected="false" aria-controls="tab-contenidos" id="btn-contenidos" data-target-tab="tab-contenidos">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-purple group-aria-selected:text-white transition-colors duration-300">07</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Estrategia de Contenidos</span>
                                 </button>
-                                <button type="button" class="service-tab-btn" role="tab" aria-selected="false" aria-controls="tab-monitoreo" id="btn-monitoreo" data-target-tab="tab-monitoreo">
-                                    <span class="service-tab-label">Monitoreo</span>
+                                <button type="button" class="service-tab-btn tab-green group flex items-center text-left w-auto lg:w-full shrink-0 snap-center transition-all duration-300 relative py-3 px-4 lg:py-4 lg:px-5" role="tab" aria-selected="false" aria-controls="tab-monitoreo" id="btn-monitoreo" data-target-tab="tab-monitoreo">
+                                    <span class="service-tab-num font-mono text-xs text-slate-500 mr-3 group-hover:text-luxus-green group-aria-selected:text-white transition-colors duration-300">08</span>
+                                    <span class="service-tab-label text-slate-300 group-hover:text-white group-hover:translate-x-1 group-aria-selected:text-white transition-all duration-300 text-xs font-semibold tracking-wider uppercase">Monitoreo</span>
                                 </button>
                             </nav>
 
-                            <div class="mt-8 pt-8 border-t border-white/10">
-                                <a href="contacto.html" class="btn-secondary w-full">Solicitar Diagnóstico</a>
+                            <div class="mt-8 pt-8 border-t border-white/5 relative z-10">
+                                <a href="contacto.html" class="btn-secondary w-full group/btn flex items-center justify-center gap-2 transition-all duration-300 hover:border-luxus-blue/40">
+                                    <span>Solicitar Diagnóstico</span>
+                                    <span aria-hidden="true" class="transition-transform duration-300 group-hover/btn:translate-x-1 text-luxus-blue">→</span>
+                                </a>
                             </div>
                         </div>
                     </aside>
@@ -105,21 +213,21 @@
                         <div id="tab-institucional" class="tab-pane active" role="tabpanel" aria-labelledby="btn-institucional">
                             <div class="relative aspect-video overflow-hidden border-b border-white/10 group/img">
                                 <img src="assets/img/comunicacion-institucional.webp" alt="Comunicación Institucional" title="Servicio de Comunicación Institucional" width="1200" height="514" class="w-full h-full object-cover opacity-60 grayscale group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-1000" loading="eager">
-                                <div class="absolute inset-0"></div>
+                                <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-4xl md:text-2xl font-bold text-white mb-6 flex items-center gap-4">
-                                    <span>Comunicación Institucional</span>
+                                <h3 id="servicio-institucional-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                    <span>Comunicación <span class="text-accent-luxus-blue">Institucional</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-institucional-heading">
                                     <li class="flex items-start gap-3">
-                                        <span>Diseño de estrategias para transmitir con claridad la <strong>identidad, propósito y valor</strong> de la organización.</span>
+                                        <span>Diseño de estrategias integrales para proyectar con absoluta nitidez la <strong>identidad, el propósito rector y el valor diferencial</strong> de la organización.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
-                                        <span>Definición y optimización del <strong>mensaje, tono y canales</strong> de comunicación.</span>
+                                        <span>Arquitectura de mensajes corporativos, calibración de <strong>tono institucional</strong> y optimización de canales estratégicos de contacto.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
-                                        <span>Aseguramiento de la <strong>coherencia y consistencia</strong> en toda la comunicación institucional.</span>
+                                        <span>Custodia rigurosa de la <strong>coherencia discursiva y consistencia estética</strong> a lo largo de toda la huella corporativa.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -132,22 +240,22 @@
                                 <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>                            
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                <h3 id="servicio-medios-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-purple flex-none w-8 h-8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                     <span>Relaciones con <span class="text-accent-luxus-blue">Medios</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-medios-heading">
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Gestión del vínculo con <strong>periodistas, editores y referentes</strong> del ecosistema informativo.</span>
+                                        <span>Gestión de vínculos de mutua confianza con <strong>líderes de opinión, editores clave</strong> y decisores de la agenda informativa.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Desarrollo de estrategias de prensa para generar <strong>presencia y visibilidad</strong> en medios relevantes.</span>
+                                        <span>Despliegue de estrategias de prensa exclusivas para consolidar una <strong>presencia relevante y de alta visibilidad</strong> en el ecosistema de medios.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Cuidado de la <strong>consistencia del mensaje</strong> institucional en todas las interacciones con la prensa.</span>
+                                        <span>Protección rigurosa y alineación del <strong>discurso institucional</strong> en cada contacto o vocería ante la prensa.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -160,22 +268,22 @@
                                 <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>                            
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                <h3 id="servicio-posicionamiento-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-green flex-none w-8 h-8" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                                     <span>Posicionamiento <span class="text-accent-luxus-blue">Estratégico</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-posicionamiento-heading">
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Construcción de una <strong>presencia pública sólida, coherente y creíble</strong> para organizaciones y referentes.</span>
+                                        <span>Ingeniería de marca corporativa y posicionamiento de líderes para erigir una <strong>presencia pública con autoridad intelectual</strong>, solidez y alta credibilidad.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Definición de <strong>mensajes clave, audiencias prioritarias</strong> y oportunidades de exposición.</span>
+                                        <span>Identificación de <strong>públicos prioritarios</strong>, desarrollo de narrativas propietarias y curaduría de espacios de exposición ejecutiva.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Alineación de las líneas de comunicación con los <strong>objetivos estratégicos</strong> del cliente.</span>
+                                        <span>Sincronización milimétrica de la agenda de comunicación corporativa con las <strong>metas de negocio y objetivos estratégicos</strong>.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -188,22 +296,22 @@
                                 <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>                            
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                <h3 id="servicio-reputacion-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-orange flex-none w-8 h-8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                                     <span>Gestión de <span class="text-accent-luxus-blue">Reputación</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-reputacion-heading">
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Asesoramiento en la <strong>construcción, cuidado y fortalecimiento</strong> de la reputación institucional.</span>
+                                        <span>Consultoría de alta dirección orientada al <strong>blindaje, mantenimiento y enriquecimiento</strong> de la reputación institucional.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Identificación de <strong>riesgos, oportunidades y percepciones</strong> relevantes para la imagen pública.</span>
+                                        <span>Auditoría de percepciones críticas, detectando de forma temprana <strong>riesgos operativos</strong> y capitalizando vectores de imagen de marca.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Estrategias para consolidar la <strong>confianza</strong> frente a públicos estratégicos y audiencias clave.</span>
+                                        <span>Desarrollo de marcos estratégicos diseñados para infundir y consolidar la <strong>confianza e influencia</strong> ante todos sus stakeholders clave.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -216,22 +324,22 @@
                                 <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>                            
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                <h3 id="servicio-crisis-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-blue flex-none w-8 h-8" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                                     <span>Comunicación <span class="text-accent-luxus-blue">de Crisis</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-crisis-heading">
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Acompañamiento en situaciones sensibles que requieren <strong>claridad, rapidez y criterio</strong>.</span>
+                                        <span>Gabinete de respuesta inmediata ante coyunturas complejas que exigen <strong>precisión táctica, templanza y confidencialidad absoluta</strong>.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Definición de <strong>mensajes, vocerías y escenarios</strong> de respuesta.</span>
+                                        <span>Simulación predictiva de escenarios de riesgo, entrenamiento de <strong>vocerías corporativas</strong> y redacción de protocolos tácticos.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Diseño de estrategias de comunicación para <strong>proteger la reputación</strong> institucional.</span>
+                                        <span>Gestión post-crisis diseñada para neutralizar el impacto, restaurar la confianza y <strong>fortalecer la resiliencia</strong> de la organización.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -244,22 +352,22 @@
                                 <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>                            
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                <h3 id="servicio-asuntos-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-purple flex-none w-8 h-8" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
                                     <span>Asuntos <span class="text-accent-luxus-blue">Públicos</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-asuntos-heading">
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Construcción de relaciones con actores del <strong>sector público, privado y social</strong>.</span>
+                                        <span>Diplomacia corporativa y construcción de alianzas de largo plazo entre el <strong>sector público, privado y sociedad civil</strong>.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Facilitación del <strong>diálogo y la generación de confianza</strong> con audiencias de interés.</span>
+                                        <span>Facilitación de mesas de diálogo de alto nivel para promover la <strong>transparencia y creación de valor compartido</strong> con audiencias de interés.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Fortalecimiento de la <strong>presencia e influencia</strong> de la organización en su entorno.</span>
+                                        <span>Posicionamiento legítimo de la perspectiva corporativa en la <strong>agenda de discusión pública</strong> y tendencias del entorno.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -272,22 +380,22 @@
                                 <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>                            
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                <h3 id="servicio-contenidos-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-green flex-none w-8 h-8" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
                                     <span>Estrategia de <span class="text-accent-luxus-blue">Contenidos</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-contenidos-heading">
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Desarrollo de <strong>contenidos institucionales</strong> para múltiples canales (web, redes, medios).</span>
+                                        <span>Curaduría y desarrollo de <strong>contenidos corporativos intelectuales</strong> y de liderazgo (thought leadership) adaptados a plataformas analíticas y digitales exclusivas.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Cuidado de la <strong>coherencia del mensaje, el tono y los objetivos</strong> de comunicación.</span>
+                                        <span>Supervisión y cuidado riguroso de la <strong>consistencia semántica, estilística y estética</strong> frente a las audiencias de destino.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Creación de contenido estratégico que <strong>ordena, posiciona y construye valor</strong> para la marca.</span>
+                                        <span>Diseño de ecosistemas editoriales integrales que educan, influyen y cimentan un <strong>posicionamiento de marca corporativa sofisticado</strong>.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -300,22 +408,22 @@
                                 <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
                             </div>                            
                             <div class="p-8 lg:p-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
+                                <h3 id="servicio-monitoreo-heading" class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-luxus-orange flex-none w-8 h-8" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="M14 9h5v5"/></svg>
                                     <span>Monitoreo <span class="text-accent-luxus-blue">y Análisis</span></span>
                                 </h3>
-                                <ul class="space-y-4 text-slate-300 lead">
+                                <ul class="space-y-4 text-slate-300 lead" aria-labelledby="servicio-monitoreo-heading">
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span><strong>Seguimiento de medios y análisis de contexto</strong> para evaluar la presencia pública.</span>
+                                        <span>Monitoreo inteligente, minería de conversación pública y análisis de <strong>clima mediático en tiempo real</strong> para calibrar la reputación corporativa.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Generación de <strong>inteligencia accionable</strong> para anticipar escenarios y ajustar mensajes.</span>
+                                        <span>Traducción de datos contextuales en reportes ejecutivos de <strong>inteligencia accionable</strong>, facilitando la toma de decisiones estratégicas por parte de la alta dirección.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <svg class="flex-shrink-0 w-4 h-4 text-luxus-blue mt-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                        <span>Informes de datos para la <strong>toma de decisiones informada</strong> en comunicación.</span>
+                                        <span>Mapeo continuo de macrotendencias de <strong>opinión pública</strong> y dinámicas informativas emergentes.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -388,22 +496,175 @@
         </section>
 
         <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
-        <section class="relative isolate overflow-hidden">
+        <div class="relative isolate overflow-hidden">
             <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
-            <div id="cta-placeholder" data-fragment="assets/partials/cta-home.html" data-fragment-load="lazy"></div>
-        </section>
+            <div id="cta-placeholder">
+<section id="cta-home" class="section-standard bg-slate-900/10" data-component="cta">
+    <div class="section-container">
+        <div class="contact-surface-gradient cta-panel relative overflow-hidden rounded-large p-8 md:p-12 lg:p-14 text-center reveal">
+            <div class="aric absolute inset-0 m-auto w-full h-full bg-luxus-green/10 rounded-full -z-10" aria-hidden="true"></div>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <div class="pill-kicker mx-auto justify-center mb-5">
+                    <span class="text-[13px] text-accent-luxus font-bold uppercase tracking-widest">Próximo paso</span>
+                </div>
+                <h3 class="section-title text-accent-luxus mb-5" data-cta-field="title">Comunicación con criterio.</h3>
+                <p class="section-description mx-auto mb-8" data-cta-field="description">
+                    Conversemos sobre el contexto, los riesgos y las oportunidades de comunicación de su organización.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="contacto.html" class="btn-primary w-full sm:w-auto" data-cta-field="primary">Solicitar reunión</a>
+                    <a href="servicios.html" class="btn-secondary w-full sm:w-auto" data-cta-field="secondary">Explorar Servicios <span aria-hidden="true" class="ml-2">→</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <!-- CONTACTO -->
-        <section class="relative isolate overflow-hidden border-t border-white/5">
+</div>
+        </div>
+
+         <!-- CONTACTO -->
+        <div class="relative isolate overflow-hidden border-t border-white/5">
             <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
-            <div id="contact-placeholder" data-fragment="assets/partials/form-section.html" data-fragment-load="lazy"></div>
-        </section>
+            <div id="contact-placeholder">
+<section class="section-standard bg-slate-900/10">
+    <div class="section-container">
+        <div class="contact-surface-gradient form-shell p-6 md:p-10 lg:p-12 rounded-large max-w-2xl mx-auto reveal">
+            <div class="form-shell-header">
+                <h2 class="text-2xl md:text-2xl font-semibold text-white tracking-normal leading-tight">Contacto</h2>
+            </div>
+
+            <form id="leadForm" action="https://formspree.io/f/mojbejqq" method="POST" class="space-y-6">
+                <div class="hidden" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+                <input type="hidden" name="_subject" value="Nuevo Lead Index: Luxus Consultores">
+                <div id="lead-companyField" class="transition-all duration-500">
+                    <label for="lead-company" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Empresa / Organización <span aria-hidden="true">*</span></label>
+                    <input type="text" id="lead-company" name="company" required aria-required="true" aria-describedby="lead-company-error" autocomplete="organization" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 hover:border-white/20 outline-none transition-all text-white text-sm" placeholder="Ej: Luxus Consultores">
+                    <p id="lead-company-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div>
+                    <label for="lead-email" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Email <span aria-hidden="true">*</span></label>
+                    <input type="email" id="lead-email" name="email" required aria-required="true" aria-describedby="lead-email-error" autocomplete="email" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm" placeholder="nombre@empresa.com">
+                    <p id="lead-email-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div>
+                    <label for="lead-phone" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Teléfono <span aria-hidden="true">*</span></label>
+                    <input type="tel" id="lead-phone" name="phone" required aria-required="true" aria-describedby="lead-phone-error" autocomplete="tel" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm" placeholder="+54 9 261 123 4567">
+                    <p id="lead-phone-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div class="relative">
+                    <label for="lead-service" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Servicio de interés <span aria-hidden="true">*</span></label>
+                    <select id="lead-service" name="service" required aria-required="true" aria-describedby="lead-service-error" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm appearance-none cursor-pointer">
+                        <option value="" class="bg-slate-900" disabled selected>Elija un servicio</option>
+                        <option value="institucional" class="bg-slate-900">Comunicación Institucional</option>
+                        <option value="medios" class="bg-slate-900">Relaciones con Medios</option>
+                        <option value="reputacion" class="bg-slate-900">Gestión de Reputación</option>
+                        <option value="crisis" class="bg-slate-900">Comunicación de Crisis</option>
+                        <option value="asuntos" class="bg-slate-900">Asuntos Públicos</option>
+                        <option value="estrategia" class="bg-slate-900">Estrategia de Contenidos</option>
+                        <option value="posicionamiento" class="bg-slate-900">Posicionamiento Estratégico</option>
+                        <option value="analisis" class="bg-slate-900">Monitoreo y Análisis de Medios</option>
+                    </select>
+                    <div class="absolute right-5 top-10.5 pointer-events-none text-slate-300" aria-hidden="true">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" role="presentation"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <p id="lead-service-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <div id="lead-messageField" class="hidden transition-all duration-500">
+                    <label for="lead-message" class="block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2">Consulta <span aria-hidden="true">*</span></label>
+                    <textarea id="lead-message" name="message" required aria-required="true" aria-describedby="lead-message-error" rows="3" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-standard focus:ring-2 focus:ring-luxus-blue/20 focus:border-luxus-blue/50 outline-none transition-all text-white text-sm" placeholder="En qué podemos ayudarle..."></textarea>
+                    <p id="lead-message-error" class="form-error-msg" role="alert"></p>
+                </div>
+                <button type="submit" id="lead-submitBtn" class="btn-primary w-full text-sm uppercase tracking-widest flex items-center justify-center gap-3">
+                    <span id="lead-btnText" aria-live="polite">Enviar consulta</span>
+                    <svg id="lead-btnSpinner" class="hidden animate-spin h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div id="lead-formStatus" class="fixed bottom-6 right-6 z-120 hidden opacity-0 translate-y-5 transition-all duration-500" role="status" aria-live="polite">
+    <div id="lead-statusBox" class="max-w-sm bg-slate-950/90 backdrop-blur-2xl border border-white/10 p-5 rounded-standard flex items-start gap-4 shadow-2xl pointer-events-auto">
+        <div id="lead-statusIcon" class="shrink-0 w-10 h-10 flex items-center justify-center rounded-standard bg-white/5 border border-white/10"></div>
+        <div class="grow pr-4">
+            <p id="lead-statusTitle" class="text-base font-bold text-white mb-1 tracking-normal"></p>
+            <p id="lead-statusMessage" class="text-slate-400 text-sm leading-relaxed"></p>
+        </div>
+        <button type="button" class="shrink-0 text-slate-500 hover:text-white transition-colors" aria-label="Cerrar notificación">×</button>
+    </div>
+</div>
+
+</div>
+        </div>
 
     </main>
 
-    <div id="footer-placeholder" data-fragment="assets/partials/footer-section.html" data-fragment-load="critical"></div>
+    <div id="footer-placeholder">
+<footer class="site-footer relative w-full bg-slate-950 pt-24 pb-12 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-luxus-blue/20 to-transparent" aria-hidden="true"></div>
 
-    <script src="assets/js/form-handler.js?v=1780097835083"></script>
-    <script src="assets/js/scripts.js?v=1780097835083"></script>
+    <div class="section-container">
+        <div class="grid grid-cols-1 items-start gap-y-12 gap-x-12 lg:grid-cols-12 lg:gap-x-16 mb-20">
+            <div class="footer-brand-panel lg:col-span-4 flex flex-col gap-8">
+                <h3 class="text-white text-xs font-bold uppercase tracking-[0.2em]">Luxus Consultores</h3>
+
+                <p class="text-xs font-medium text-slate-400 uppercase tracking-widest">
+                    Estrategia de autoridad y gestión de activos intangibles con rigor metodológico.
+                </p>
+
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-3 group/email">
+                        <a href="mailto:info@luxusconsultores.com" class="email-load text-xs font-medium text-slate-400 uppercase tracking-widest hover:text-luxus-blue transition-colors">
+                            info@luxusconsultores.com
+                        </a>
+                        <button id="copyEmailBtn" type="button" class="opacity-0 group-hover/email:opacity-100 p-1.5 rounded-standard bg-white/5 border border-white/10 text-slate-400 hover:text-luxus-blue hover:border-luxus-blue/30 transition-all focus:opacity-100" title="Copiar email" aria-label="Copiar email">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                        </button>
+                    </div>
+                    <address class="not-italic text-xs font-medium text-slate-400 uppercase tracking-widest">
+                       <a href="https://maps.app.goo.gl/GEzwfXcSfwk3uU8a8" target="_blank" rel="noopener noreferrer" class="hover:text-luxus-blue transition-colors">
+                            Sobremonte 750, M5500 Ciudad, Mendoza<br>
+                        </a>
+                    </address>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 flex flex-col gap-8">
+                <div class="footer-section-heading">
+                    <h3 class="text-white text-xs font-bold uppercase tracking-[0.2em]">Servicios</h3>
+                    <a href="servicios.html" class="footer-all-link text-xs">Ver todos</a>
+                </div>
+                <div class="footer-link-grid grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8 text-xs font-medium text-slate-400 uppercase tracking-widest">
+                    <nav class="flex flex-col gap-5" aria-label="Servicios principales">
+                        <a href="servicios.html#tab-institucional" class="footer-link-glow hover:text-luxus-blue transition-colors">Comunicación Institucional</a>
+                        <a href="servicios.html#tab-crisis" class="footer-link-glow hover:text-luxus-blue transition-colors">Gestión de Crisis</a>
+                        <a href="servicios.html#tab-asuntos" class="footer-link-glow hover:text-luxus-blue transition-colors">Asuntos Públicos</a>
+                        <a href="servicios.html#tab-reputacion" class="footer-link-glow hover:text-luxus-blue transition-colors">Reputación Corporativa</a>
+                    </nav>
+                    <nav class="flex flex-col gap-5" aria-label="Servicios adicionales">
+                        <a href="servicios.html#tab-medios" class="footer-link-glow hover:text-luxus-blue transition-colors">Relación con Medios</a>
+                        <a href="servicios.html#tab-posicionamiento" class="footer-link-glow hover:text-luxus-blue transition-colors">Posicionamiento Estratégico</a>
+                        <a href="servicios.html#tab-contenidos" class="footer-link-glow hover:text-luxus-blue transition-colors">Estrategia de Contenidos</a>
+                        <a href="servicios.html#tab-monitoreo" class="footer-link-glow hover:text-luxus-blue transition-colors">Monitoreo y Análisis</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span class="text-micro text-slate-400 uppercase tracking-[0.2em] font-bold">© 2026 Luxus Consultores</span>
+            <a href="" target="_blank" rel="noopener" class="text-tiny text-slate-400 hover:text-white transition-colors uppercase font-bold tracking-[0.18em]">Powered by SmartWeb</a>
+        </div>
+    </div>
+</footer>
+
+</div>
+
+    <script src="assets/js/form-handler.js?v=1780097835083" defer></script>
+    <script src="assets/js/scripts.js?v=1780097835083" defer></script>
 </body>
 </html>

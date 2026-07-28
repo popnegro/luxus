@@ -1,2 +1,0 @@
-# luxus
-Repositorio para refactorizar

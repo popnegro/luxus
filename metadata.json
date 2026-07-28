@@ -1,0 +1,8 @@
+{
+  "name": "Luxus Consultores",
+  "description": "Consultoría Estratégica de Autoridad, reputación y asuntos públicos en el Cono Sur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

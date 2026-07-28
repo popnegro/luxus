@@ -19,9 +19,26 @@
     <!-- Preconexiones y Estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css?v=1780097835083">
 
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog de Luxus Consultores",
+      "description": "Análisis estratégico, perspectivas de opinión, asuntos públicos y reflexiones técnicas sobre comunicación corporativa en el Cono Sur.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Luxus Consultores",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.luxusconsultores.com/assets/img/luxus.webp"
+        }
+      }
+    }
+    </script>
 </head>
 <body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-purple); --atmosphere-color-alt: var(--color-luxus-blue);">
 
@@ -84,10 +101,10 @@
         </section>
 
         <!-- SECCIÓN DE CIERRE Y PREGUNTAS -->
-        <section class="relative isolate overflow-hidden">
+        <div class="relative isolate overflow-hidden">
             <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-purple/10 rounded-full pointer-events-none -z-10"></div>
             <div id="faq-placeholder" data-fragment="assets/partials/faq-section.html" data-fragment-load="critical"></div>
-        </section>
+        </div>
     </main>
     
     <div id="footer-placeholder" data-fragment="assets/partials/footer-section.html" data-fragment-load="critical"></div>

@@ -17,9 +17,40 @@
     <!-- Preconexiones y Estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" defer></script>
     <link rel="stylesheet" href="assets/css/main.css?v=1780097835083">
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Metodología Luxus: El Rigor del Análisis",
+      "description": "Nuestra ruta estratégica de cuatro pasos para la gestión de comunicación institucional, reputación corporativa y posicionamiento de autoridad.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Diagnóstico",
+          "text": "Analizamos el contexto, los objetivos, las audiencias, los mensajes actuales y la situación comunicacional de la organización."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Estrategia",
+          "text": "Definimos prioridades, mensajes clave, públicos relevantes, canales y oportunidades de posicionamiento."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Gestión",
+          "text": "Implementamos acciones de comunicación, prensa, contenidos, vínculos institucionales y posicionamiento público."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Seguimiento",
+          "text": "Evaluamos resultados, analizamos repercusiones y ajustamos la estrategia según la evolución del contexto."
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-purple); --atmosphere-color-alt: var(--color-luxus-blue);">
 
@@ -51,10 +82,10 @@
         <div id="metodologia-placeholder" data-fragment="assets/partials/metodologia-section.html" data-fragment-load="critical"></div>
 
         <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
-        <section class="relative isolate overflow-hidden">
+        <div class="relative isolate overflow-hidden">
             <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-purple/10 rounded-full pointer-events-none -z-10"></div>
             <div id="cta-placeholder" data-fragment="assets/partials/cta-home.html" data-fragment-load="lazy"></div>
-        </section>
+        </div>
 
         
     </main>
