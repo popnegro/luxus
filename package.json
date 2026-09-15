@@ -21,7 +21,7 @@
     "critical": "^5.0.4",
     "imagemin-cli": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
-    "imagemin-pngquant": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
     "imagemin-svgo": "^10.0.1",
     "imagemin-webp": "^8.0.0",
     "live-server": "^1.2.2",
