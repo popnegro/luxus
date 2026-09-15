@@ -43,8 +43,8 @@ for (const file of fs.readdirSync(DIST_DIR).filter((name) => name.endsWith('.htm
   // Keep the current tab implementation while adapting semantic service hashes to its technical IDs.
   if (file === 'servicios.html' && html.includes('assets/js/scripts.js') && !html.includes('assets/js/service-deep-links.js')) {
     html = html.replace(
-      /<script\s+src="assets\/js\/scripts\.js"([^>]*)><\/script>/i,
-      '<script src="assets/js/scripts.js"$1></script>\n    <script src="assets/js/service-deep-links.js" defer></script>'
+      /<script\s+src="assets\/js\/scripts\.js(?:\?[^\"]*)?"([^>]*)><\/script>/i,
+      '<script src="assets/js/scripts.js$1"></script>\n    <script src="assets/js/service-deep-links.js" defer></script>'
     );
   }
 
