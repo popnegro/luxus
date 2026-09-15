@@ -18,7 +18,7 @@ files.forEach((file) => {
   let htmlContent = fs.readFileSync(filePath, 'utf8');
   let fileChanged = false;
 
-  const divRegex = /<div\s+([^>]*data-fragment="([^"]+)"[^>]*)><\/div>/g;
+  const divRegex = /<div\s+([^>]*data-fragment="([^"]+)"[^>]*)>\s*<\/div>/g;
 
   htmlContent = htmlContent.replace(divRegex, (fullMatch, attrs, fragPath) => {
     const fullFragPath = path.join(DIST_DIR, fragPath);
