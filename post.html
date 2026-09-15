@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/webp" href="assets/img/favicon.webp" fetchpriority="high">
+    <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
 
     <!-- SEO Base (Fallback) -->
     <title>Artículo | Luxus Consultores</title>
@@ -21,20 +21,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" defer></script>
     <link rel="stylesheet" href="assets/css/main.css?v=1780097835083">
-
 </head>
 <body class="antialiased bg-radial-gradient min-h-screen flex flex-col" style="--atmosphere-color: var(--color-luxus-purple); --atmosphere-color-alt: var(--color-luxus-orange);">
 
     <div id="navigation-placeholder" data-fragment="assets/partials/navigation-section.html" data-fragment-load="critical"></div>
 
-    <!-- Barra de progreso de lectura -->
     <div class="reading-progress-container" aria-hidden="true">
         <div id="reading-progress-bar" class="reading-progress-bar"></div>
     </div>
 
     <main id="main-content" class="grow">
-        <!-- HERO DEL ARTÍCULO -->
-        <section class="luxus-hero post-hero min-h-auto! pb-16">
+        <section class="luxus-hero post-hero min-h-auto! pb-16" aria-labelledby="post-title">
             <div aria-hidden="true" class="luxus-hero-blob"></div>
             <div class="section-container relative z-10">
                 <div id="breadcrumb-placeholder"></div>
@@ -49,15 +46,13 @@
             </div>
         </section>
 
-        <section class="section-standard post-reading-section relative isolate">
+        <section class="section-standard post-reading-section relative isolate" aria-labelledby="post-title">
             <div class="section-container">
-                <article class="post-article max-w-4xl mx-auto">
-                    <!-- Imagen Principal -->
+                <article class="post-article max-w-4xl mx-auto" aria-labelledby="post-title">
                     <div class="aspect-video mb-16 rounded-large overflow-hidden border border-white/10 skeleton reveal">
-                        <img id="post-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Artículo Luxus" title="Cargando artículo..." width="1200" height="675" class="img-grayscale-reveal" loading="eager" fetchpriority="high">
+                        <img id="post-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Artículo Luxus" width="1200" height="675" class="img-grayscale-reveal" loading="eager" fetchpriority="high">
                     </div>
 
-                    <!-- Contenido del Post -->
                     <div id="post-content" class="section-description text-slate-300 reveal space-y-8">
                         <div class="h-4 w-full skeleton rounded-standard"></div>
                         <div class="h-4 w-5/6 skeleton rounded-standard"></div>
@@ -65,7 +60,6 @@
                         <div class="h-4 w-4/6 skeleton rounded-standard"></div>
                     </div>
 
-                    <!-- Footer del Artículo -->
                     <footer class="post-article-footer mt-20 pt-10 border-t border-white/5 reveal">
                         <div class="post-cta-card">
                             <div>
@@ -91,14 +85,11 @@
             </div>
         </section>
 
-        <!-- Artículos Relacionados -->
-        <section id="related-posts-section" class="section-standard border-t border-white/5 hidden relative isolate">
-            <div class="aric animate-aric-float absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-luxus-purple/5 rounded-full pointer-events-none -z-10 blur-3xl"></div>
+        <section id="related-posts-section" class="section-standard border-t border-white/5 hidden relative isolate" aria-labelledby="related-posts-heading">
+            <div class="aric animate-aric-float absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-luxus-purple/5 rounded-full pointer-events-none -z-10 blur-3xl" aria-hidden="true"></div>
             <div class="section-container">
-                <h2 class="section-title section-title-left mb-12">Artículos <span class="text-accent-luxus-blue">relacionados</span></h2>
-                <div id="related-posts-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Contenido inyectado dinámicamente -->
-                </div>
+                <h2 id="related-posts-heading" class="section-title section-title-left mb-12">Artículos <span class="text-accent-luxus-blue">relacionados</span></h2>
+                <div id="related-posts-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
             </div>
         </section>
 
