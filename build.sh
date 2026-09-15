@@ -46,12 +46,16 @@ for file in assets/js/*.js; do
 done
 
 # Extrae e incrusta el CSS crítico para acelerar el renderizado.
-# La optimización es best-effort: un fallo de critical no debe invalidar
-# una build estática que ya puede ser servida correctamente.
+# La optimización es best-effort y nunca escribe sobre el HTML original
+# hasta que critical termina correctamente.
 echo "⚡ Optimizando CSS crítico..."
 for file in "$DIST_DIR"/*.html; do
   echo "   - Procesando $file"
-  if ! critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$file" >/dev/null 2>&1; then
+  temp_file="${file}.critical"
+  if critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$temp_file" >/dev/null 2>&1; then
+    mv "$temp_file" "$file"
+  else
+    rm -f "$temp_file"
     echo "   ⚠️ Critical CSS no pudo procesar $file; se conserva el HTML original."
   fi
 done
