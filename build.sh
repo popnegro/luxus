@@ -54,13 +54,20 @@ for file in assets/js/*.js; do
   terser "$file" -o "$DIST_DIR/assets/js/$(basename "$file")" -c -m
 done
 
-# 6. Extrae e incrusta el CSS crítico para acelerar el renderizado
+# 6. Extrae e incrusta el CSS crítico cuando el motor puede procesar la página.
+# Si Critical/Chromium falla, el HTML ya construido se conserva intacto para no
+# convertir una optimización opcional en un bloqueo del build.
 echo "⚡ Optimizando CSS crítico..."
 for file in "$DIST_DIR"/*.html; do
   echo "   - Procesando $file"
-  critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$file" >/dev/null 2>&1
+  critical_output="${file}.critical"
+  if critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$critical_output" >/dev/null 2>&1; then
+    mv "$critical_output" "$file"
+  else
+    rm -f "$critical_output"
+    echo "   ⚠️ Critical no pudo procesar $(basename "$file"); se conserva el HTML generado."
+  fi
 done
-
 
 echo "✅ ¡Build finalizado con éxito! Los archivos de producción están listos en la carpeta '$DIST_DIR/'."
 echo "🎉 Puedes desplegar el contenido de la carpeta '$DIST_DIR/' en tu servidor."
