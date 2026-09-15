@@ -14,6 +14,17 @@ const requiredFiles = [
   'sitemap.xml',
 ];
 
+const serviceAnchors = [
+  'comunicacion-institucional',
+  'relaciones-con-medios',
+  'posicionamiento-estrategico',
+  'gestion-de-reputacion',
+  'comunicacion-de-crisis',
+  'asuntos-publicos',
+  'estrategia-de-contenidos',
+  'monitoreo-y-analisis',
+];
+
 let hasErrors = false;
 const fail = (message) => {
   console.error(`❌ ${message}`);
@@ -43,6 +54,19 @@ for (const file of htmlFiles) {
   if (/href=""/.test(html)) fail(`${file}: contiene un anchor con href vacío.`);
   if (/http:\/\/www\.3\.000\.org\/2000\/svg/.test(html)) fail(`${file}: contiene un namespace SVG inválido.`);
   if (/assets\/css\/main\.css[^>]*media="print"/.test(html)) fail(`${file}: conserva la estrategia CSS async heredada.`);
+}
+
+const servicesHtml = fs.readFileSync(path.join(DIST_DIR, 'servicios.html'), 'utf8');
+for (const anchor of serviceAnchors) {
+  if (!servicesHtml.includes(`servicios.html#${anchor}`)) {
+    fail(`servicios.html: falta el anchor semántico #${anchor}.`);
+  }
+}
+if (/servicios\.html#tab-[a-z-]+/i.test(servicesHtml)) {
+  fail('servicios.html: conserva anchors públicos con el prefijo técnico #tab-.');
+}
+if (!servicesHtml.includes('assets/js/service-deep-links.js')) {
+  fail('servicios.html: falta el adaptador de deep links semánticos.');
 }
 
 if (!fs.existsSync(path.join(DIST_DIR, 'assets'))) fail('Falta dist/assets/.');
