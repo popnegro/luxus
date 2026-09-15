@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "./dev.sh",
     "build": "./build.sh",
-    "start": "live-server dist/"
+    "start": "live-server dist/",
+    "validate": "node scripts/validate-build.js",
+    "check": "npm run build && npm run validate",
+    "test": "npm run check"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +21,7 @@
     "critical": "^5.0.4",
     "imagemin-cli": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
-    "imagemin-pngquant": "^9.0.2",
+    "imagemin-pngquant": "^9.0.0",
     "imagemin-svgo": "^10.0.1",
     "imagemin-webp": "^8.0.0",
     "live-server": "^1.2.2",
