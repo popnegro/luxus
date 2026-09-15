@@ -13,6 +13,11 @@ if [ ! -f "assets/css/ux-legibility.css" ]; then
   exit 1
 fi
 
+if [ ! -f "assets/js/ux-behavior.js" ]; then
+  echo "❌ Falta assets/js/ux-behavior.js"
+  exit 1
+fi
+
 echo "🚀 Iniciando el proceso de build para producción..."
 
 if [ -d "$DIST_DIR" ]; then
@@ -45,6 +50,12 @@ cat "$DIST_DIR/assets/css/ux-legibility.css" >> "$DIST_DIR/assets/css/main.css"
 echo "📜 Minimizando archivos JavaScript..."
 for file in assets/js/*.js; do
   terser "$file" -o "$DIST_DIR/assets/js/$(basename "$file")" -c -m
+done
+
+# UX behavior enhancements are loaded after the main runtime so they can augment
+# dynamically hydrated components without replacing the existing architecture.
+for file in "$DIST_DIR"/*.html; do
+  sed -i 's#</body>#<script src="assets/js/ux-behavior.js" defer></script>\n</body>#' "$file"
 done
 
 echo "⚡ Optimizando CSS crítico..."
