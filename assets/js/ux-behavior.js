@@ -1,6 +1,5 @@
 (() => {
     const TAB_SELECTOR = '#serviceTabs .service-tab-btn';
-    const PANEL_SELECTOR = '.tab-pane';
     const FAQ_SELECTOR = '.faq-item';
 
     const enhanceTabs = (root = document) => {
@@ -22,7 +21,7 @@
             panel.setAttribute('role', 'tabpanel');
             panel.setAttribute('aria-labelledby', tab.id);
             panel.setAttribute('tabindex', '0');
-            panel.hidden = tab.getAttribute('aria-selected') !== 'true';
+            panel.setAttribute('aria-hidden', tab.getAttribute('aria-selected') === 'true' ? 'false' : 'true');
             tab.dataset.uxTabIndex = String(index);
         });
 
@@ -51,7 +50,7 @@
                 const panel = document.getElementById(tab.dataset.targetTab || '');
                 const active = tab.getAttribute('aria-selected') === 'true';
                 tab.setAttribute('tabindex', active ? '0' : '-1');
-                if (panel) panel.hidden = !active;
+                if (panel) panel.setAttribute('aria-hidden', active ? 'false' : 'true');
             });
         };
 
