@@ -1,3 +1,60 @@
+<style id="ux-legibility-overrides">
+/* UX/UI P55 — preserve Luxus visual language; improve scanability and reading comfort. */
+.home-insight-meta,
+.home-service-meta {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    letter-spacing: 0.12em;
+}
+
+.home-insight-link,
+.home-service-link {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.10em;
+}
+
+.blog-card-meta,
+.blog-card-date {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    letter-spacing: 0.10em;
+}
+
+.blog-card-cta {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.service-tab-btn {
+    letter-spacing: 0.06em;
+}
+
+@media (min-width: 1024px) {
+    .service-tab-btn {
+        letter-spacing: 0.08em !important;
+    }
+}
+
+.home-insight-link:focus-visible,
+.home-service-link:focus-visible,
+.blog-card-cta:focus-visible,
+.service-tab-btn:focus-visible {
+    outline: 2px solid var(--color-luxus-blue);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .luxus-card,
+    .home-insight-link,
+    .home-service-link,
+    .blog-card-cta,
+    .service-tab-btn {
+        transition: none !important;
+    }
+}
+</style>
+
 <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
 <header id="siteHeader" class="header-nav">
