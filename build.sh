@@ -2,36 +2,29 @@
 
 # ==============================================================================
 # Script de Build para Producción - Luxus
-#
-# Este script recopila y optimiza los archivos necesarios para el despliegue
-# en un directorio de distribución (por defecto: 'dist/').
-#
-# Uso:
-#   ./build.sh
 # ==============================================================================
 
-# Detiene el script si ocurre un error
 set -e
 
-# --- Configuración ---
 DIST_DIR="dist"
+
+if [ ! -f "assets/css/ux-legibility.css" ]; then
+  echo "❌ Falta assets/css/ux-legibility.css"
+  exit 1
+fi
 
 echo "🚀 Iniciando el proceso de build para producción..."
 
-# 1. Limpia el directorio de distribución si ya existe
 if [ -d "$DIST_DIR" ]; then
     echo "🧹 Limpiando el directorio '$DIST_DIR/'..."
     rm -rf "$DIST_DIR"
 fi
 
-# 2. Crea la estructura de directorios de producción
-echo "📁 Creando la estructura de directorios en '$DIST_DIR/'..."
 mkdir -p "$DIST_DIR/assets/css"
 mkdir -p "$DIST_DIR/assets/js"
 mkdir -p "$DIST_DIR/assets/img"
 mkdir -p "$DIST_DIR/assets/partials"
 
-# 3. Copia archivos HTML, imágenes, parciales y archivos de SEO
 echo "📦 Copiando archivos del proyecto..."
 cp *.html "$DIST_DIR/"
 cp robots.txt "$DIST_DIR/" 2>/dev/null || true
@@ -39,24 +32,21 @@ cp sitemap.xml "$DIST_DIR/" 2>/dev/null || true
 cp -R assets/img/* "$DIST_DIR/assets/img/"
 cp -R assets/partials/* "$DIST_DIR/assets/partials/"
 
-# 3b. Pre-renderiza los fragmentos HTML en el directorio de distribución
 node compile-fragments.js
 
-# 4. Minimiza y copia archivos CSS
 echo "💅 Minimizando archivos CSS..."
 for file in assets/css/*.css; do
   cleancss "$file" -o "$DIST_DIR/assets/css/$(basename "$file")"
 done
 
-# 5. Minimiza y copia archivos JavaScript
+# UX/UI legibility refinements are bundled into the stylesheet already linked by every page.
+cat "$DIST_DIR/assets/css/ux-legibility.css" >> "$DIST_DIR/assets/css/main.css"
+
 echo "📜 Minimizando archivos JavaScript..."
 for file in assets/js/*.js; do
   terser "$file" -o "$DIST_DIR/assets/js/$(basename "$file")" -c -m
 done
 
-# 6. Extrae e incrusta el CSS crítico cuando el motor puede procesar la página.
-# Si Critical/Chromium falla, el HTML ya construido se conserva intacto para no
-# convertir una optimización opcional en un bloqueo del build.
 echo "⚡ Optimizando CSS crítico..."
 for file in "$DIST_DIR"/*.html; do
   echo "   - Procesando $file"
