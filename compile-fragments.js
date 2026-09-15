@@ -18,11 +18,10 @@ files.forEach(file => {
   let htmlContent = fs.readFileSync(filePath, 'utf8');
   let hasChanges = false;
 
-  // Regex para buscar los placeholders de fragmentos con data-fragment
-  const divRegex = /<div\s+([^>]*data-fragment="([^"]+)"[^>]*)><\/div>/g;
+  // Buscar placeholders incluso cuando el cierre de <div> está separado por espacios o saltos de línea.
+  const divRegex = /<div\s+([^>]*data-fragment="([^"]+)"[^>]*)>\s*<\/div>/g;
 
   htmlContent = htmlContent.replace(divRegex, (fullMatch, attrs, fragPath) => {
-    // Resolver la ruta del fragmento relativa a dist/
     const fullFragPath = path.join(DIST_DIR, fragPath);
 
     if (fs.existsSync(fullFragPath)) {
@@ -30,17 +29,17 @@ files.forEach(file => {
       const fragContent = fs.readFileSync(fullFragPath, 'utf8');
       hasChanges = true;
 
-      // Mantener id y clases para preservar estilos y selectores JS
+      // Mantener id y clases para preservar estilos y selectores JS.
       const idMatch = attrs.match(/id="([^"]+)"/);
       const idAttr = idMatch ? ` id="${idMatch[1]}"` : '';
       const classMatch = attrs.match(/class="([^"]+)"/);
       const classAttr = classMatch ? ` class="${classMatch[1]}"` : '';
 
       return `<div${idAttr}${classAttr}>\n${fragContent}\n</div>`;
-    } else {
-      console.warn(`   ⚠️ Fragmento no encontrado: ${fullFragPath}`);
-      return fullMatch;
     }
+
+    console.warn(`   ⚠️ Fragmento no encontrado: ${fullFragPath}`);
+    return fullMatch;
   });
 
   if (hasChanges) {
