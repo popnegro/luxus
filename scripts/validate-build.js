@@ -45,6 +45,8 @@ for (const file of requiredFiles) {
 const htmlFiles = fs.readdirSync(DIST_DIR).filter((file) => file.endsWith('.html'));
 if (htmlFiles.length === 0) fail('No se encontraron páginas HTML en dist/.');
 
+const renderedHtml = htmlFiles.map((file) => fs.readFileSync(path.join(DIST_DIR, file), 'utf8')).join('\n');
+
 for (const file of htmlFiles) {
   const html = fs.readFileSync(path.join(DIST_DIR, file), 'utf8');
 
@@ -56,15 +58,16 @@ for (const file of htmlFiles) {
   if (/assets\/css\/main\.css[^>]*media="print"/.test(html)) fail(`${file}: conserva la estrategia CSS async heredada.`);
 }
 
-const servicesHtml = fs.readFileSync(path.join(DIST_DIR, 'servicios.html'), 'utf8');
 for (const anchor of serviceAnchors) {
-  if (!servicesHtml.includes(`servicios.html#${anchor}`)) {
-    fail(`servicios.html: falta el anchor semántico #${anchor}.`);
+  if (!renderedHtml.includes(`servicios.html#${anchor}`)) {
+    fail(`Build: falta el anchor semántico #${anchor}.`);
   }
 }
-if (/servicios\.html#tab-[a-z-]+/i.test(servicesHtml)) {
-  fail('servicios.html: conserva anchors públicos con el prefijo técnico #tab-.');
+if (/servicios\.html#tab-[a-z-]+/i.test(renderedHtml)) {
+  fail('Build: conserva anchors públicos con el prefijo técnico #tab-.');
 }
+
+const servicesHtml = fs.readFileSync(path.join(DIST_DIR, 'servicios.html'), 'utf8');
 if (!servicesHtml.includes('assets/js/service-deep-links.js')) {
   fail('servicios.html: falta el adaptador de deep links semánticos.');
 }
