@@ -24,16 +24,12 @@
     </noscript>
     <title>Nosotros | Luxus Consultores</title>
 
-    <!-- 1. Cargar CSS no crítico de forma asíncrona -->
     <link rel="stylesheet" href="assets/css/main.css?v=1780097835083" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="assets/css/main.css?v=1780097835083"></noscript>
 
-    <!-- 2. Inyectar aquí el CSS crítico para el renderizado inicial -->
     <style>
-        /* ... Aquí irían las reglas de CSS críticas para el header, hero y navegación ... */
-        /* Por ejemplo: .header-nav, .luxus-hero, .hero-title, .btn-primary, etc. */
+        /* CSS crítico heredado; las reglas globales viven en main.css. */
     </style>
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -70,9 +66,11 @@
                 <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
                     <div class="reveal order-1 mt-0">
                         <div id="breadcrumb-placeholder"></div>
-                        
+                        <div class="pill-kicker mx-auto justify-center mb-5">
+                            <span class="text-[13px] text-accent-luxus font-bold uppercase tracking-widest">Arquitectura Narrativa</span>
+                        </div>
                         <h1 class="hero-title mb-8 text-balance d2">
-                            Comunicación institucional con <span class="text-accent-luxus-blue">criterio.</span>
+                            Visibilidad para construir confianza.
                         </h1>
                         <div class="flex flex-wrap gap-4 d3 mt-8">
                             <a href="contacto.html" class="btn-primary w-full md:w-auto">Solicitar una reunión</a>
@@ -89,11 +87,9 @@
         </section>
 
         <section class="section-standard about-page relative isolate py-20 lg:py-28 overflow-hidden">
-            <!-- Fondo decorativo y SVG -->
             <div class="absolute inset-0 -z-10 overflow-hidden">
                 <svg aria-hidden="true" class="absolute top-0 left-[max(50%,25rem)] h-[64rem] w-[128rem] -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-white/5">
                     <defs>
-                        <!-- Definición de Símbolo SVG Reutilizable para Viñetas -->
                         <symbol id="check-bullet" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
                         </symbol>
@@ -107,14 +103,12 @@
 
             <div class="section-container">
                 <div class="grid grid-cols-1 lg:grid-cols-12 lg:items-start lg:gap-x-16 xl:gap-x-20">
-
-                    <!-- Columna de Contenido (Izquierda) -->
                     <div class="lg:col-span-7 xl:col-span-6">
                         <div class="max-w-2xl space-y-20">
-                          
-                            <!-- Sección: ¿Qué hacemos? -->
                             <article id="que-hacemos" class="reveal">
-                                <span class="section-kicker text-luxus-blue">Arquitectura Narrativa</span>
+                                <div class="pill-kicker justify-start mb-5">
+                                    <span class="text-[13px] text-accent-luxus font-bold uppercase tracking-widest">Arquitectura Narrativa</span>
+                                </div>
                                 <h2 id="que-hacemos-heading" class="section-title section-title-left mt-3">¿Qué hacemos?</h2>
                                 <p class="section-description mt-6">
                                     Nuestro trabajo consiste en diseñar e implementar arquitecturas de comunicación que permiten a las organizaciones navegar entornos complejos con autoridad y seguridad.
@@ -131,9 +125,11 @@
                                     </li>
                                 </ul>
                             </article>
-                            <!-- Sección: Nuestro Diferencial -->
+
                             <article id="diferencial" class="reveal mt-20">
-                                <span class="section-kicker text-luxus-blue">Criterio y Rigor</span>
+                                <div class="pill-kicker justify-start mb-5">
+                                    <span class="text-[13px] text-accent-luxus font-bold uppercase tracking-widest">Criterio y Rigor</span>
+                                </div>
                                 <h2 id="diferencial-heading" class="section-title section-title-left mt-3">Nuestro diferencial</h2>
                                 <p class="section-description mt-6">
                                     El rigor analítico y la discreción absoluta son los pilares de nuestra firma. Entendemos que en la alta dirección, el silencio es a veces más elocuente que el ruido.
@@ -153,15 +149,10 @@
                         </div>
                     </div>
 
-                    <!-- Columna de Imagen (Derecha, Adherente) -->
                     <div class="lg:col-span-5 xl:col-span-6 lg:sticky lg:top-24 reveal d2">
                         <div class="relative group">
-                            <!-- Fondo brillante -->
                             <div class="absolute -inset-6 rounded-3xl bg-luxus-blue/10 blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" aria-hidden="true"></div>
-                            
-                            <!-- Contenedor de la imagen con estilo "browser" -->
                             <div class="luxus-surface p-2">
-                                <!-- Barra superior del "browser" -->
                                 <div class="flex items-center gap-1.5 px-3 pb-2 pt-1 border-b border-white/5 mb-2">
                                     <span class="w-2.5 h-2.5 rounded-full bg-red-400/50"></span>
                                     <span class="w-2.5 h-2.5 rounded-full bg-yellow-400/50"></span>
@@ -182,7 +173,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN SECTORES -->
         <section id="sectores" class="section-standard relative border-t border-white/5 py-20 lg:py-28">
             <div class="section-container">
                 <div class="max-w-3xl mb-16 reveal">
@@ -195,10 +185,7 @@
                     <article class="sector-row reveal">
                         <div class="md:col-span-4">
                             <h3 class="home-insight-title sector-heading">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="sector-icon"
-                                    aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true">
                                     <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
                                     <path d="M9 22v-4h6v4" />
                                     <path d="M8 6h.01" />
@@ -212,19 +199,14 @@
                             </h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="home-insight-copy sector-copy">Acompañamos a compañías que buscan
-                                consolidar su reputación, mejorar su relación con medios, ordenar su
-                                comunicación institucional o fortalecer su presencia pública.</p>
+                            <p class="home-insight-copy sector-copy">Acompañamos a compañías que buscan consolidar su reputación, mejorar su relación con medios, ordenar su comunicación institucional o fortalecer su presencia pública.</p>
                         </div>
                     </article>
 
                     <article class="sector-row reveal">
                         <div class="md:col-span-4">
                             <h3 class="home-insight-title sector-heading">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="sector-icon"
-                                    aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true">
                                     <line x1="3" x2="21" y1="22" y2="22" />
                                     <line x1="6" x2="6" y1="18" y2="11" />
                                     <line x1="10" x2="10" y1="18" y2="11" />
@@ -236,19 +218,14 @@
                             </h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="home-insight-copy sector-copy">Brindamos asesoramiento en comunicación
-                                institucional, gestión de mensajes, posicionamiento de gestión y vínculo con
-                                audiencias clave.</p>
+                            <p class="home-insight-copy sector-copy">Brindamos asesoramiento en comunicación institucional, gestión de mensajes, posicionamiento de gestión y vínculo con audiencias clave.</p>
                         </div>
                     </article>
 
                     <article class="sector-row reveal">
                         <div class="md:col-span-4">
                             <h3 class="home-insight-title sector-heading">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="sector-icon"
-                                    aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true">
                                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                                     <circle cx="9" cy="7" r="4" />
                                     <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
@@ -258,43 +235,34 @@
                             </h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="home-insight-copy sector-copy">Trabajamos con universidades, fundaciones,
-                                cámaras, asociaciones y organizaciones que necesitan comunicar su propósito, sus
-                                acciones y su impacto.</p>
+                            <p class="home-insight-copy sector-copy">Trabajamos con universidades, fundaciones, cámaras, asociaciones y organizaciones que necesitan comunicar su propósito, sus acciones y su impacto.</p>
                         </div>
                     </article>
 
                     <article class="sector-row reveal">
                         <div class="md:col-span-4">
                             <h3 class="home-insight-title sector-heading">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="sector-icon"
-                                    aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sector-icon" aria-hidden="true">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                                 </svg>
                                 <span>Proyectos con exposición pública</span>
                             </h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="home-insight-copy sector-copy">Acompañamos iniciativas que requieren
-                                estrategia, sensibilidad institucional y una correcta lectura del contexto
-                                público y mediático.</p>
+                            <p class="home-insight-copy sector-copy">Acompañamos iniciativas que requieren estrategia, sensibilidad institucional y una correcta lectura del contexto público y mediático.</p>
                         </div>
                     </article>
-                </div> <!-- Cierre de divide-y -->
+                </div>
             </div>
-        <!-- SECCIÓN DE CIERRE Y ACCIÓN -->
+        </section>
+
         <div class="relative isolate overflow-hidden">
-            <div
-                class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10">
-            </div>
+            <div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div>
             <div id="cta-placeholder" data-fragment="assets/partials/cta-home.html" data-fragment-load="lazy"></div>
         </div>
     </main>
 
-    <div id="footer-placeholder" data-fragment="assets/partials/footer-section.html" data-fragment-load="critical">
-    </div>
+    <div id="footer-placeholder" data-fragment="assets/partials/footer-section.html" data-fragment-load="critical"></div>
     <script src="assets/js/form-handler.js?v=1780097835083"></script>
     <script src="assets/js/scripts.js?v=1780097835083"></script>
 </body>
