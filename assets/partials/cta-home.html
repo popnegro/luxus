@@ -1,15 +1,3 @@
-<style>
-    .luxus-service-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-    }
-    .luxus-service-card > * { position: relative; z-index: 2; }
-</style>
-
 <section id="cta-home" class="section-standard bg-slate-900/10" data-component="cta" aria-labelledby="cta-home-heading">
     <div class="section-container">
         <div class="contact-surface-gradient cta-panel relative overflow-hidden rounded-large p-8 md:p-12 lg:p-14 text-center reveal">
@@ -21,73 +9,112 @@
                 <h2 id="cta-home-heading" class="section-title text-accent-luxus mb-5" data-cta-field="title">Comunicación con criterio.</h2>
                 <p class="section-description mx-auto mb-8" data-cta-field="description">Conversemos sobre el contexto, los riesgos y las oportunidades de comunicación de su organización.</p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="metodologia.html" class="btn-primary w-full sm:w-auto" data-cta-field="primary">NUESTROS MÉTODOS</a>
-                    <a href="contacto.html" class="btn-secondary w-full sm:w-auto" data-cta-field="secondary">SOLICITAR REUNIÓN</a>
+                    <a href="contacto.html" class="btn-primary w-full sm:w-auto" data-cta-field="primary">SOLICITAR REUNIÓN</a>
+                    <a href="nosotros.html" class="btn-secondary w-full sm:w-auto" data-cta-field="secondary">CONOCER LUXUS</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<style>
+    .partial-service-card:before {
+        background: linear-gradient(0deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .18) 62%, rgba(0, 0, 0, 0) 100%);
+    }
+    .partial-service-card .luxus-card-bg {
+        opacity: .34;
+        filter: grayscale(100%) saturate(.82) contrast(1.02);
+    }
+    .partial-service-card:hover .luxus-card-bg,
+    .partial-service-card:focus-within .luxus-card-bg {
+        opacity: .46;
+        filter: grayscale(12%) saturate(.96) contrast(1.04);
+    }
+    .partial-service-card .luxus-icon-container,
+    .partial-service-card .partial-service-title,
+    .partial-service-card a {
+        text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
+    }
+
+    #services-carousel-container,
+    #serviceTabs,
+    .methodology-snap-carousel,
+    #servicesCarousel {
+        touch-action: pan-x pinch-zoom;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    #services-carousel-container::-webkit-scrollbar,
+    #serviceTabs::-webkit-scrollbar,
+    .methodology-snap-carousel::-webkit-scrollbar,
+    #servicesCarousel::-webkit-scrollbar {
+        display: none;
+    }
+    @media (max-width: 1023px) {
+        #services-carousel-container > article,
+        #serviceTabs > .service-tab-btn,
+        .methodology-snap-carousel > * {
+            scroll-snap-align: center;
+        }
+    }
+</style>
+
 <script>
 (() => {
     const path = window.location.pathname;
     const isHome = /(?:^|\/)index\.html$|\/$/.test(path);
-    const isNosotros = /\/nosotros\.html$/.test(path);
+    const isServicios = /\/servicios\.html$/.test(path);
 
-    if (isHome) {
-        const kicker = document.querySelector('#hero .pill-kicker h2');
-        const title = document.querySelector('#hero h1');
-        const clientsLink = document.querySelector('.home-insight-card:nth-of-type(2) .home-insight-link');
-        const faq = document.querySelector('#faq-placeholder');
-
-        if (kicker) kicker.textContent = 'LUXUS CONSULTORES';
-        if (title) title.innerHTML = 'Comunicación institucional <br><span class="font-extrabold text-white block sm:inline sm:text-accent-luxus-blue mt-1 sm:mt-0">con criterio estratégico</span>';
-        if (clientsLink) {
-            clientsLink.href = 'servicios.html#clientes';
-            const label = clientsLink.querySelector('span:not([aria-hidden])');
-            if (label) label.textContent = 'VER CASOS DE ÉXITO';
-        }
-        if (faq) faq.remove();
-    }
-
-    if (isNosotros) {
-        const cta = document.querySelector('#cta-home')?.closest('.relative.isolate.overflow-hidden');
-        if (cta && !document.querySelector('#faq')) {
-            const wrapper = document.createElement('div');
-            wrapper.className = 'relative isolate overflow-hidden';
-            const placeholder = document.createElement('div');
-            placeholder.id = 'faq-placeholder';
-            wrapper.appendChild(placeholder);
-            cta.parentNode.insertBefore(wrapper, cta);
-
-            fetch('assets/partials/faq-section.html')
-                .then(response => response.ok ? response.text() : '')
-                .then(html => {
-                    if (!html) return;
-                    placeholder.innerHTML = html;
-                    placeholder.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-                    const list = placeholder.querySelector('.faq-list');
-                    if (!list) return;
-                    list.addEventListener('click', event => {
-                        const trigger = event.target.closest('.faq-trigger');
-                        if (!trigger) return;
-                        const item = trigger.closest('.faq-item');
-                        const content = item?.querySelector('.faq-content');
-                        if (!item || !content) return;
-                        const open = trigger.getAttribute('aria-expanded') === 'true';
-                        list.querySelectorAll('.faq-trigger[aria-expanded="true"]').forEach(other => {
-                            if (other === trigger) return;
-                            other.setAttribute('aria-expanded', 'false');
-                            other.closest('.faq-item')?.querySelector('.faq-content')?.style.setProperty('max-height', '0px');
-                            other.querySelector('.faq-icon')?.style.setProperty('transform', 'rotate(0deg)');
-                        });
-                        trigger.setAttribute('aria-expanded', String(!open));
-                        content.style.maxHeight = open ? '0px' : `${content.scrollHeight}px`;
-                        trigger.querySelector('.faq-icon')?.style.setProperty('transform', open ? 'rotate(0deg)' : 'rotate(45deg)');
-                    });
-                });
+    if (isServicios) {
+        const clientsSection = document.getElementById('sectores');
+        if (clientsSection) {
+            clientsSection.id = 'clientes';
+            if (window.location.hash === '#clientes') {
+                requestAnimationFrame(() => clientsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+            }
         }
     }
+
+    const initHorizontalDrag = (selector) => {
+        document.querySelectorAll(selector).forEach((container) => {
+            if (container.dataset.horizontalDragInitialized === 'true') return;
+            container.dataset.horizontalDragInitialized = 'true';
+
+            let startX = 0;
+            let startScrollLeft = 0;
+            let dragging = false;
+
+            container.addEventListener('pointerdown', (event) => {
+                if (event.pointerType === 'mouse') return;
+                startX = event.clientX;
+                startScrollLeft = container.scrollLeft;
+                dragging = true;
+            }, { passive: true });
+
+            container.addEventListener('pointermove', (event) => {
+                if (!dragging || event.pointerType === 'mouse') return;
+                const delta = event.clientX - startX;
+                if (Math.abs(delta) > 4) container.scrollLeft = startScrollLeft - delta;
+            }, { passive: true });
+
+            ['pointerup', 'pointercancel', 'pointerleave'].forEach((type) => {
+                container.addEventListener(type, () => { dragging = false; }, { passive: true });
+            });
+        });
+    };
+
+    initHorizontalDrag('#services-carousel-container, #serviceTabs, .methodology-snap-carousel, #servicesCarousel');
+
+    const dots = document.querySelectorAll('#services-dots > button');
+    const cards = document.querySelectorAll('#services-carousel-container > article');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            dots.forEach((item, itemIndex) => item.classList.toggle('active-dot', itemIndex === index));
+        });
+    });
+
+    if (isHome) return;
 })();
 </script>
