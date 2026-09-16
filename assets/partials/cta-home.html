@@ -18,7 +18,6 @@
 </section>
 
 <style>
-    /* Cards de soluciones: recupera la lectura fotográfica sin sacrificar contraste. */
     .partial-service-card:before {
         background: linear-gradient(0deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .18) 62%, rgba(0, 0, 0, 0) 100%);
     }
@@ -37,8 +36,8 @@
         text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
     }
 
-    /* Timeline / cards horizontales: scroll táctil real en mobile. */
     #services-carousel-container,
+    #serviceTabs,
     .methodology-snap-carousel,
     #servicesCarousel {
         touch-action: pan-x pinch-zoom;
@@ -47,12 +46,14 @@
         scrollbar-width: none;
     }
     #services-carousel-container::-webkit-scrollbar,
+    #serviceTabs::-webkit-scrollbar,
     .methodology-snap-carousel::-webkit-scrollbar,
     #servicesCarousel::-webkit-scrollbar {
         display: none;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 1023px) {
         #services-carousel-container > article,
+        #serviceTabs > .service-tab-btn,
         .methodology-snap-carousel > * {
             scroll-snap-align: center;
         }
@@ -63,43 +64,15 @@
 (() => {
     const path = window.location.pathname;
     const isHome = /(?:^|\/)index\.html$|\/$/.test(path);
-    const isNosotros = /\/nosotros\.html$/.test(path);
     const isServicios = /\/servicios\.html$/.test(path);
-
-    if (isHome) {
-        const kicker = document.querySelector('#hero .pill-kicker h2');
-        const title = document.querySelector('#hero h1');
-        const clientsLink = document.querySelector('.home-insight-card:nth-of-type(2) .home-insight-link');
-        const faq = document.querySelector('#faq-placeholder');
-
-        if (kicker) kicker.textContent = 'CONSULTORES EN MENDOZA';
-        if (title) title.innerHTML = 'Comunicación con criterio estratégico';
-        if (clientsLink) {
-            clientsLink.href = 'servicios.html#clientes';
-            const label = clientsLink.querySelector('span:not([aria-hidden])');
-            if (label) label.textContent = 'VER CASOS DE ÉXITO';
-        }
-        if (faq) faq.remove();
-    }
-
-    if (isNosotros) {
-        const heroTitle = document.querySelector('.luxus-hero .hero-title');
-        const hero = document.querySelector('.luxus-hero');
-        const breadcrumb = document.getElementById('breadcrumb-placeholder');
-        if (heroTitle) heroTitle.textContent = 'Visibilidad para construir confianza.';
-        if (hero && breadcrumb && !hero.querySelector('.luxus-hero .pill-kicker')) {
-            const kicker = document.createElement('div');
-            kicker.className = 'pill-kicker mx-auto justify-center mb-5';
-            kicker.innerHTML = '<span class="text-[13px] text-accent-luxus font-bold uppercase tracking-widest">Arquitectura Narrativa</span>';
-            breadcrumb.insertAdjacentElement('afterend', kicker);
-        }
-    }
 
     if (isServicios) {
         const clientsSection = document.getElementById('sectores');
-        if (clientsSection && !clientsSection.id.includes('clientes')) clientsSection.id = 'clientes';
-        if (window.location.hash === '#clientes' && clientsSection) {
-            requestAnimationFrame(() => clientsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        if (clientsSection) {
+            clientsSection.id = 'clientes';
+            if (window.location.hash === '#clientes') {
+                requestAnimationFrame(() => clientsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+            }
         }
     }
 
@@ -131,6 +104,17 @@
         });
     };
 
-    initHorizontalDrag('#services-carousel-container, .methodology-snap-carousel, #servicesCarousel');
+    initHorizontalDrag('#services-carousel-container, #serviceTabs, .methodology-snap-carousel, #servicesCarousel');
+
+    const dots = document.querySelectorAll('#services-dots > button');
+    const cards = document.querySelectorAll('#services-carousel-container > article');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            dots.forEach((item, itemIndex) => item.classList.toggle('active-dot', itemIndex === index));
+        });
+    });
+
+    if (isHome) return;
 })();
 </script>
