@@ -53,11 +53,40 @@
 
     if (isNosotros) {
         const cta = document.querySelector('#cta-home')?.closest('.relative.isolate.overflow-hidden');
-        if (cta && !document.querySelector('#faq-placeholder')) {
+        if (cta && !document.querySelector('#faq')) {
             const wrapper = document.createElement('div');
             wrapper.className = 'relative isolate overflow-hidden';
-            wrapper.innerHTML = '<div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div><div id="faq-placeholder" data-fragment="assets/partials/faq-section.html" data-fragment-load="lazy"></div>';
+            const placeholder = document.createElement('div');
+            placeholder.id = 'faq-placeholder';
+            wrapper.appendChild(placeholder);
             cta.parentNode.insertBefore(wrapper, cta);
+
+            fetch('assets/partials/faq-section.html')
+                .then(response => response.ok ? response.text() : '')
+                .then(html => {
+                    if (!html) return;
+                    placeholder.innerHTML = html;
+                    placeholder.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+                    const list = placeholder.querySelector('.faq-list');
+                    if (!list) return;
+                    list.addEventListener('click', event => {
+                        const trigger = event.target.closest('.faq-trigger');
+                        if (!trigger) return;
+                        const item = trigger.closest('.faq-item');
+                        const content = item?.querySelector('.faq-content');
+                        if (!item || !content) return;
+                        const open = trigger.getAttribute('aria-expanded') === 'true';
+                        list.querySelectorAll('.faq-trigger[aria-expanded="true"]').forEach(other => {
+                            if (other === trigger) return;
+                            other.setAttribute('aria-expanded', 'false');
+                            other.closest('.faq-item')?.querySelector('.faq-content')?.style.setProperty('max-height', '0px');
+                            other.querySelector('.faq-icon')?.style.setProperty('transform', 'rotate(0deg)');
+                        });
+                        trigger.setAttribute('aria-expanded', String(!open));
+                        content.style.maxHeight = open ? '0px' : `${content.scrollHeight}px`;
+                        trigger.querySelector('.faq-icon')?.style.setProperty('transform', open ? 'rotate(0deg)' : 'rotate(45deg)');
+                    });
+                });
         }
     }
 })();
