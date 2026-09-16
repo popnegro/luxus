@@ -1,3 +1,15 @@
+<style>
+    .luxus-service-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+    .luxus-service-card > * { position: relative; z-index: 2; }
+</style>
+
 <section id="cta-home" class="section-standard bg-slate-900/10" data-component="cta" aria-labelledby="cta-home-heading">
     <div class="section-container">
         <div class="contact-surface-gradient cta-panel relative overflow-hidden rounded-large p-8 md:p-12 lg:p-14 text-center reveal">
@@ -16,3 +28,37 @@
         </div>
     </div>
 </section>
+
+<script>
+(() => {
+    const path = window.location.pathname;
+    const isHome = /(?:^|\/)index\.html$|\/$/.test(path);
+    const isNosotros = /\/nosotros\.html$/.test(path);
+
+    if (isHome) {
+        const kicker = document.querySelector('#hero .pill-kicker h2');
+        const title = document.querySelector('#hero h1');
+        const clientsLink = document.querySelector('.home-insight-card:nth-of-type(2) .home-insight-link');
+        const faq = document.querySelector('#faq-placeholder');
+
+        if (kicker) kicker.textContent = 'LUXUS CONSULTORES';
+        if (title) title.innerHTML = 'Comunicación institucional <br><span class="font-extrabold text-white block sm:inline sm:text-accent-luxus-blue mt-1 sm:mt-0">con criterio estratégico</span>';
+        if (clientsLink) {
+            clientsLink.href = 'servicios.html#clientes';
+            const label = clientsLink.querySelector('span:not([aria-hidden])');
+            if (label) label.textContent = 'VER CASOS DE ÉXITO';
+        }
+        if (faq) faq.remove();
+    }
+
+    if (isNosotros) {
+        const cta = document.querySelector('#cta-home')?.closest('.relative.isolate.overflow-hidden');
+        if (cta && !document.querySelector('#faq-placeholder')) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'relative isolate overflow-hidden';
+            wrapper.innerHTML = '<div class="aric animate-aric-float absolute -bottom-32 -right-32 w-lg h-128 bg-luxus-blue/10 rounded-full pointer-events-none -z-10"></div><div id="faq-placeholder" data-fragment="assets/partials/faq-section.html" data-fragment-load="lazy"></div>';
+            cta.parentNode.insertBefore(wrapper, cta);
+        }
+    }
+})();
+</script>
