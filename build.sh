@@ -8,15 +8,17 @@ set -e
 
 DIST_DIR="dist"
 
-if [ ! -f "assets/css/ux-legibility.css" ]; then
-  echo "❌ Falta assets/css/ux-legibility.css"
-  exit 1
-fi
-
-if [ ! -f "assets/js/ux-behavior.js" ]; then
-  echo "❌ Falta assets/js/ux-behavior.js"
-  exit 1
-fi
+for required in \
+  assets/css/ux-legibility.css \
+  assets/css/service-ui.css \
+  assets/js/ux-behavior.js \
+  assets/js/service-carousel.js
+do
+  if [ ! -f "$required" ]; then
+    echo "❌ Falta $required"
+    exit 1
+  fi
+done
 
 echo "🚀 Iniciando el proceso de build para producción..."
 
@@ -44,18 +46,23 @@ for file in assets/css/*.css; do
   cleancss "$file" -o "$DIST_DIR/assets/css/$(basename "$file")"
 done
 
-# UX/UI legibility refinements are bundled into the stylesheet already linked by every page.
+# Bundle visual-language and service UI into the single stylesheet every page links.
 cat "$DIST_DIR/assets/css/ux-legibility.css" >> "$DIST_DIR/assets/css/main.css"
+cat "$DIST_DIR/assets/css/service-ui.css" >> "$DIST_DIR/assets/css/main.css"
 
 echo "📜 Minimizando archivos JavaScript..."
 for file in assets/js/*.js; do
   terser "$file" -o "$DIST_DIR/assets/js/$(basename "$file")" -c -m
 done
 
-# UX behavior enhancements are loaded after the main runtime so they can augment
-# dynamically hydrated components without replacing the existing architecture.
+# Runtime enhancements: a11y behavior + service carousel (idempotent inject).
 for file in "$DIST_DIR"/*.html; do
-  sed -i 's#</body>#<script src="assets/js/ux-behavior.js" defer></script>\n</body>#' "$file"
+  if ! grep -q 'assets/js/ux-behavior.js' "$file"; then
+    sed -i 's#</body>#<script src="assets/js/ux-behavior.js" defer></script>\n</body>#' "$file"
+  fi
+  if ! grep -q 'assets/js/service-carousel.js' "$file"; then
+    sed -i 's#</body>#<script src="assets/js/service-carousel.js" defer></script>\n</body>#' "$file"
+  fi
 done
 
 echo "⚡ Optimizando CSS crítico..."
@@ -70,7 +77,6 @@ for file in "$DIST_DIR"/*.html; do
   fi
 done
 
-# Unifica la estrategia de carga CSS y elimina placeholders heredados.
 if [ -f "scripts/normalize-build-html.js" ]; then
   node scripts/normalize-build-html.js
 fi
