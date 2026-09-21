@@ -1,5 +1,10 @@
-node_modules
+node_modules/
 .env
 .env.local
 .env.*.local
 .env.production.ini
+.parcel-cache/
+dist/
+coverage/
+*.log
+.DS_Store
