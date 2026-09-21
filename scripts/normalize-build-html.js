@@ -33,7 +33,7 @@ for (const file of fs.readdirSync(DIST_DIR).filter((name) => name.endsWith('.htm
   );
 
   // Normalize a known malformed SVG namespace in the services partial.
-  html = html.replace(/http:\/\/www\.3\.000\.org\/2000\/svg/g, 'http://www.w3.org/2000/svg');
+  html = html.replace(/http:\/\/www\.3\.000(?:\.org\/2000)?\/svg/g, 'http://www.w3.org/2000/svg');
 
   // Image alt text is the accessible label; avoid redundant native tooltips.
   html = html.replace(/\s+title="[^"]*"(?=\s+(?:loading|class|width|height|src|alt)=|\s*\/?>)/gi, '');
