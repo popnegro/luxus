@@ -70,5 +70,10 @@ for file in "$DIST_DIR"/*.html; do
   fi
 done
 
+# Unifica la estrategia de carga CSS y elimina placeholders heredados.
+if [ -f "scripts/normalize-build-html.js" ]; then
+  node scripts/normalize-build-html.js
+fi
+
 echo "✅ ¡Build finalizado con éxito! Los archivos de producción están listos en la carpeta '$DIST_DIR/'."
 echo "🎉 Puedes desplegar el contenido de la carpeta '$DIST_DIR/' en tu servidor."
