@@ -42,7 +42,7 @@ for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(DIST_DIR, file))) fail(`Falta el archivo requerido: dist/${file}`);
 }
 
-const htmlFiles = fs.readdirSync(DIST_DIR).filter((file) => file.endsWith('.html');
+const htmlFiles = fs.readdirSync(DIST_DIR).filter((file) => file.endsWith('.html'));
 if (htmlFiles.length === 0) fail('No se encontraron páginas HTML en dist/.');
 
 const renderedHtml = htmlFiles.map((file) => fs.readFileSync(path.join(DIST_DIR, file), 'utf8')).join('\n');
