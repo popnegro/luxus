@@ -12,3 +12,50 @@
 
         <div class="relative reveal" style="--timeline-progress: 0;">
             <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-white/5 -z-10" aria-hidden="true"></div>
+
+            <div id="methodology-carousel-container" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-4 md:overflow-visible" aria-label="Etapas de la metodología">
+                <article id="method-step-1" class="method-step-card reveal d1 flex-none w-[85vw] md:w-auto snap-center flex flex-col items-center text-center relative z-10 group" aria-labelledby="method-step-title-1">
+                    <div class="w-20 h-20 rounded-large flex items-center justify-center mb-7 relative bg-slate-950 border-2 border-luxus-blue/30 luxus-icon-container blue transition-all duration-700">
+                        <span class="text-3xl font-black text-luxus-blue" aria-hidden="true">01</span>
+                    </div>
+                    <h3 id="method-step-title-1" class="text-lg font-extrabold text-white mb-3">Diagnóstico</h3>
+                    <p class="body-small text-slate-400">Analizamos el contexto, los objetivos, las audiencias y la situación comunicacional actual de la organización.</p>
+                </article>
+
+                <article id="method-step-2" class="method-step-card reveal d2 flex-none w-[85vw] md:w-auto snap-center flex flex-col items-center text-center relative z-10 group" aria-labelledby="method-step-title-2">
+                    <div class="w-20 h-20 rounded-large flex items-center justify-center mb-7 relative bg-slate-950 border-2 border-luxus-purple/30 luxus-icon-container purple transition-all duration-700">
+                        <span class="text-3xl font-black text-luxus-purple" aria-hidden="true">02</span>
+                    </div>
+                    <h3 id="method-step-title-2" class="text-lg font-extrabold text-white mb-3">Estrategia</h3>
+                    <p class="body-small text-slate-400">Diseñamos el camino crítico, definimos canales estratégicos y construimos el plan de acción para consolidar su autoridad.</p>
+                </article>
+
+                <article id="method-step-3" class="method-step-card reveal d3 flex-none w-[85vw] md:w-auto snap-center flex flex-col items-center text-center relative z-10 group" aria-labelledby="method-step-title-3">
+                    <div class="w-20 h-20 rounded-large flex items-center justify-center mb-7 relative bg-slate-950 border-2 border-luxus-green/30 luxus-icon-container green transition-all duration-700">
+                        <span class="text-3xl font-black text-luxus-green" aria-hidden="true">03</span>
+                    </div>
+                    <h3 id="method-step-title-3" class="text-lg font-extrabold text-white mb-3">Gestión</h3>
+                    <p class="body-small text-slate-400">Implementamos acciones de comunicación, prensa, contenidos, vínculos institucionales y posicionamiento público.</p>
+                </article>
+
+                <article id="method-step-4" class="method-step-card reveal d4 flex-none w-[85vw] md:w-auto snap-center flex flex-col items-center text-center relative z-10 group" aria-labelledby="method-step-title-4">
+                    <div class="w-20 h-20 rounded-large flex items-center justify-center mb-7 relative bg-slate-950 border-2 border-luxus-orange/30 luxus-icon-container orange transition-all duration-700">
+                        <span class="text-3xl font-black text-luxus-orange" aria-hidden="true">04</span>
+                    </div>
+                    <h3 id="method-step-title-4" class="text-lg font-extrabold text-white mb-3">Seguimiento</h3>
+                    <p class="body-small text-slate-400">Evaluamos resultados, analizamos repercusiones y ajustamos la estrategia según la evolución del contexto.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="relative max-w-xs mx-auto mt-12 px-2 md:hidden">
+            <div class="timeline-line absolute inset-x-0 top-1/2! -translate-y-1/2 left-0! right-0! h-0.5" aria-hidden="true"></div>
+            <div id="methodology-dots" class="relative z-10 flex justify-between items-center" role="tablist" aria-label="Seleccionar etapa de metodología">
+                <button type="button" class="w-2.5 h-2.5 rounded-full bg-slate-950 border border-white/10 transition-all duration-300 active-dot" aria-label="Ir a paso 1" aria-controls="method-step-1" aria-selected="true" role="tab"></button>
+                <button type="button" class="w-2.5 h-2.5 rounded-full bg-slate-950 border border-white/10 transition-all duration-300" aria-label="Ir a paso 2" aria-controls="method-step-2" aria-selected="false" role="tab" tabindex="-1"></button>
+                <button type="button" class="w-2.5 h-2.5 rounded-full bg-slate-950 border border-white/10 transition-all duration-300" aria-label="Ir a paso 3" aria-controls="method-step-3" aria-selected="false" role="tab" tabindex="-1"></button>
+                <button type="button" class="w-2.5 h-2.5 rounded-full bg-slate-950 border border-white/10 transition-all duration-300" aria-label="Ir a paso 4" aria-controls="method-step-4" aria-selected="false" role="tab" tabindex="-1"></button>
+            </div>
+        </div>
+    </div>
+</section>
