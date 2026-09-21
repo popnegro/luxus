@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "./dev.sh",
-    "build": "./build.sh",
+    "dev": "bash ./dev.sh",
+    "build": "bash ./build.sh",
     "start": "live-server dist/",
     "validate": "node scripts/validate-build.js",
     "check": "npm run build && npm run validate",
