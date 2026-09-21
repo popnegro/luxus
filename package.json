@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "./dev.sh",
     "build": "./build.sh",
+    "start": "live-server dist/",
     "validate": "node scripts/validate-build.js",
-    "test": "npm run validate",
     "check": "npm run build && npm run validate",
-    "start": "live-server dist/"
+    "test": "npm run check"
   },
   "keywords": [],
   "author": "",
