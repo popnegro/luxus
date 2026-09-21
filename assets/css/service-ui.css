@@ -1,0 +1,42 @@
+/* Service cards + horizontal carousels (extracted from CTA partial) */
+
+.partial-service-card:before {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .18) 62%, rgba(0, 0, 0, 0) 100%);
+}
+.partial-service-card .luxus-card-bg {
+    opacity: .34;
+    filter: grayscale(100%) saturate(.82) contrast(1.02);
+}
+.partial-service-card:hover .luxus-card-bg,
+.partial-service-card:focus-within .luxus-card-bg {
+    opacity: .46;
+    filter: grayscale(12%) saturate(.96) contrast(1.04);
+}
+.partial-service-card .luxus-icon-container,
+.partial-service-card .partial-service-title,
+.partial-service-card a {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
+}
+
+#services-carousel-container,
+#serviceTabs,
+.methodology-snap-carousel,
+#servicesCarousel {
+    touch-action: pan-x pinch-zoom;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+#services-carousel-container::-webkit-scrollbar,
+#serviceTabs::-webkit-scrollbar,
+.methodology-snap-carousel::-webkit-scrollbar,
+#servicesCarousel::-webkit-scrollbar {
+    display: none;
+}
+@media (max-width: 1023px) {
+    #services-carousel-container > article,
+    #serviceTabs > .service-tab-btn,
+    .methodology-snap-carousel > * {
+        scroll-snap-align: center;
+    }
+}

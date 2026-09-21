@@ -1,5 +1,56 @@
-/* UX/UI P55 — legibility refinements. Preserve the existing Luxus visual language. */
+/* UX/UI — visual language tokens & legibility. Canonical Luxus system. */
 
+/* -------------------------------------------------------------------------- */
+/* 1. Accent aliases (deprecated class names → canonical color tokens)        */
+/*    Prefer text-luxus-blue / text-luxus-green in markup going forward.       */
+/* -------------------------------------------------------------------------- */
+.text-accent-luxus-blue {
+    color: var(--color-luxus-blue);
+}
+.text-accent-luxus {
+    color: var(--color-luxus-green);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. Canonical pill-kicker typography                                        */
+/*    Outer .pill-kicker handles chrome (border/padding/flex).                */
+/*    Inner label inherits this type scale — no ad-hoc text-[11px]/13px].    */
+/* -------------------------------------------------------------------------- */
+.pill-kicker {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-luxus-blue);
+}
+
+.pill-kicker > h2,
+.pill-kicker > span,
+.pill-kicker > p {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    color: inherit;
+    margin: 0;
+}
+
+/* Section micro-kicker used outside pills stays micro + wide tracking */
+.section-kicker {
+    letter-spacing: 0.16em;
+}
+
+/* Contact channel labels align with kicker tracking */
+.text-micro.tracking-\[0\.25em\],
+.contact-channel-kicker {
+    letter-spacing: 0.16em !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Card / link legibility                                                  */
+/* -------------------------------------------------------------------------- */
 .home-insight-meta,
 .home-service-meta {
     font-size: 0.6875rem;

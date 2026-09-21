@@ -4,9 +4,9 @@
             <div class="aric absolute inset-0 m-auto w-full h-full bg-luxus-green/10 rounded-full -z-10" aria-hidden="true"></div>
             <div class="relative z-10 max-w-4xl mx-auto">
                 <div class="pill-kicker mx-auto justify-center mb-5">
-                    <span class="text-[13px] text-accent-luxus font-bold uppercase tracking-widest">PRIMER PASO</span>
+                    <span>Primer paso</span>
                 </div>
-                <h2 id="cta-home-heading" class="section-title text-accent-luxus mb-5" data-cta-field="title">Comunicación con criterio.</h2>
+                <h2 id="cta-home-heading" class="section-title text-luxus-green mb-5" data-cta-field="title">Comunicación con criterio.</h2>
                 <p class="section-description mx-auto mb-8" data-cta-field="description">Conversemos sobre el contexto, los riesgos y las oportunidades de comunicación de su organización.</p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="contacto.html" class="btn-primary w-full sm:w-auto" data-cta-field="primary">SOLICITAR REUNIÓN</a>
@@ -16,105 +16,3 @@
         </div>
     </div>
 </section>
-
-<style>
-    .partial-service-card:before {
-        background: linear-gradient(0deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .18) 62%, rgba(0, 0, 0, 0) 100%);
-    }
-    .partial-service-card .luxus-card-bg {
-        opacity: .34;
-        filter: grayscale(100%) saturate(.82) contrast(1.02);
-    }
-    .partial-service-card:hover .luxus-card-bg,
-    .partial-service-card:focus-within .luxus-card-bg {
-        opacity: .46;
-        filter: grayscale(12%) saturate(.96) contrast(1.04);
-    }
-    .partial-service-card .luxus-icon-container,
-    .partial-service-card .partial-service-title,
-    .partial-service-card a {
-        text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
-    }
-
-    #services-carousel-container,
-    #serviceTabs,
-    .methodology-snap-carousel,
-    #servicesCarousel {
-        touch-action: pan-x pinch-zoom;
-        overscroll-behavior-x: contain;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-    #services-carousel-container::-webkit-scrollbar,
-    #serviceTabs::-webkit-scrollbar,
-    .methodology-snap-carousel::-webkit-scrollbar,
-    #servicesCarousel::-webkit-scrollbar {
-        display: none;
-    }
-    @media (max-width: 1023px) {
-        #services-carousel-container > article,
-        #serviceTabs > .service-tab-btn,
-        .methodology-snap-carousel > * {
-            scroll-snap-align: center;
-        }
-    }
-</style>
-
-<script>
-(() => {
-    const path = window.location.pathname;
-    const isHome = /(?:^|\/)index\.html$|\/$/.test(path);
-    const isServicios = /\/servicios\.html$/.test(path);
-
-    if (isServicios) {
-        const clientsSection = document.getElementById('sectores');
-        if (clientsSection) {
-            clientsSection.id = 'clientes';
-            if (window.location.hash === '#clientes') {
-                requestAnimationFrame(() => clientsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-            }
-        }
-    }
-
-    const initHorizontalDrag = (selector) => {
-        document.querySelectorAll(selector).forEach((container) => {
-            if (container.dataset.horizontalDragInitialized === 'true') return;
-            container.dataset.horizontalDragInitialized = 'true';
-
-            let startX = 0;
-            let startScrollLeft = 0;
-            let dragging = false;
-
-            container.addEventListener('pointerdown', (event) => {
-                if (event.pointerType === 'mouse') return;
-                startX = event.clientX;
-                startScrollLeft = container.scrollLeft;
-                dragging = true;
-            }, { passive: true });
-
-            container.addEventListener('pointermove', (event) => {
-                if (!dragging || event.pointerType === 'mouse') return;
-                const delta = event.clientX - startX;
-                if (Math.abs(delta) > 4) container.scrollLeft = startScrollLeft - delta;
-            }, { passive: true });
-
-            ['pointerup', 'pointercancel', 'pointerleave'].forEach((type) => {
-                container.addEventListener(type, () => { dragging = false; }, { passive: true });
-            });
-        });
-    };
-
-    initHorizontalDrag('#services-carousel-container, #serviceTabs, .methodology-snap-carousel, #servicesCarousel');
-
-    const dots = document.querySelectorAll('#services-dots > button');
-    const cards = document.querySelectorAll('#services-carousel-container > article');
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            dots.forEach((item, itemIndex) => item.classList.toggle('active-dot', itemIndex === index));
-        });
-    });
-
-    if (isHome) return;
-})();
-</script>
