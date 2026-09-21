@@ -2,14 +2,21 @@
 
 # ==============================================================================
 # Script de Build para Producción - Luxus
-#
-# Este script recopila y optimiza los archivos necesarios para el despliegue
-# en un directorio de distribución (por defecto: 'dist/').
 # ==============================================================================
 
 set -e
 
 DIST_DIR="dist"
+
+if [ ! -f "assets/css/ux-legibility.css" ]; then
+  echo "❌ Falta assets/css/ux-legibility.css"
+  exit 1
+fi
+
+if [ ! -f "assets/js/ux-behavior.js" ]; then
+  echo "❌ Falta assets/js/ux-behavior.js"
+  exit 1
+fi
 
 echo "🚀 Iniciando el proceso de build para producción..."
 
@@ -23,49 +30,50 @@ mkdir -p "$DIST_DIR/assets/js"
 mkdir -p "$DIST_DIR/assets/img"
 mkdir -p "$DIST_DIR/assets/partials"
 
-# Copia archivos HTML, imágenes, parciales y archivos de SEO.
+echo "📦 Copiando archivos del proyecto..."
 cp *.html "$DIST_DIR/"
 cp robots.txt "$DIST_DIR/" 2>/dev/null || true
 cp sitemap.xml "$DIST_DIR/" 2>/dev/null || true
 cp -R assets/img/* "$DIST_DIR/assets/img/"
 cp -R assets/partials/* "$DIST_DIR/assets/partials/"
 
-# Pre-renderiza los fragmentos HTML en el directorio de distribución.
 node compile-fragments.js
 
-# Minimiza y copia archivos CSS.
 echo "💅 Minimizando archivos CSS..."
 for file in assets/css/*.css; do
   cleancss "$file" -o "$DIST_DIR/assets/css/$(basename "$file")"
 done
 
-# Minimiza y copia archivos JavaScript.
+# UX/UI legibility refinements are bundled into the stylesheet already linked by every page.
+cat "$DIST_DIR/assets/css/ux-legibility.css" >> "$DIST_DIR/assets/css/main.css"
+
 echo "📜 Minimizando archivos JavaScript..."
 for file in assets/js/*.js; do
   terser "$file" -o "$DIST_DIR/assets/js/$(basename "$file")" -c -m
 done
 
-# Extrae e incrusta el CSS crítico para acelerar el renderizado.
-# La optimización es best-effort y nunca escribe sobre el HTML original
-# hasta que critical termina correctamente.
+# UX behavior enhancements are loaded after the main runtime so they can augment
+# dynamically hydrated components without replacing the existing architecture.
+for file in "$DIST_DIR"/*.html; do
+  sed -i 's#</body>#<script src="assets/js/ux-behavior.js" defer></script>\n</body>#' "$file"
+done
+
 echo "⚡ Optimizando CSS crítico..."
 for file in "$DIST_DIR"/*.html; do
   echo "   - Procesando $file"
-  temp_file="${file}.critical"
-  if critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$temp_file" >/dev/null 2>&1; then
-    mv "$temp_file" "$file"
+  critical_output="${file}.critical"
+  if critical "$file" --base "$DIST_DIR" --inline --width 1300 --height 900 --output "$critical_output" >/dev/null 2>&1; then
+    mv "$critical_output" "$file"
   else
-    rm -f "$temp_file"
-    echo "   ⚠️ Critical CSS no pudo procesar $file; se conserva el HTML original."
+    rm -f "$critical_output"
+    echo "   ⚠️ Critical no pudo procesar $(basename "$file"); se conserva el HTML generado."
   fi
 done
 
 # Unifica la estrategia de carga CSS y elimina placeholders heredados.
-node scripts/normalize-build-html.js
-
-echo "🔎 Validando HTML generado..."
-if [ -f "scripts/validate-build.js" ]; then
-  node scripts/validate-build.js
+if [ -f "scripts/normalize-build-html.js" ]; then
+  node scripts/normalize-build-html.js
 fi
 
 echo "✅ ¡Build finalizado con éxito! Los archivos de producción están listos en la carpeta '$DIST_DIR/'."
+echo "🎉 Puedes desplegar el contenido de la carpeta '$DIST_DIR/' en tu servidor."

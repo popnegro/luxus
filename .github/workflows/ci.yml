@@ -2,13 +2,18 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'refactor/**']
   pull_request:
     branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
