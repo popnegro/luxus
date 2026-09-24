@@ -1,19 +1,4 @@
 (() => {
-    const path = window.location.pathname;
-    const isServicios = /\/servicios\.html$/.test(path);
-
-    if (isServicios) {
-        const clientsSection = document.getElementById('sectores');
-        if (clientsSection) {
-            clientsSection.id = 'clientes';
-            if (window.location.hash === '#clientes') {
-                requestAnimationFrame(() =>
-                    clientsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                );
-            }
-        }
-    }
-
     const initHorizontalDrag = (selector) => {
         document.querySelectorAll(selector).forEach((container) => {
             if (container.dataset.horizontalDragInitialized === 'true') return;
