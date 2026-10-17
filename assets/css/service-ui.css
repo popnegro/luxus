@@ -4,13 +4,14 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .18) 62%, rgba(0, 0, 0, 0) 100%);
 }
 .partial-service-card .luxus-card-bg {
-    opacity: .34;
+    opacity: .38;
     filter: grayscale(100%) saturate(.82) contrast(1.02);
+    transition: opacity .5s ease, filter .5s ease;
 }
 .partial-service-card:hover .luxus-card-bg,
 .partial-service-card:focus-within .luxus-card-bg {
-    opacity: .46;
-    filter: grayscale(12%) saturate(.96) contrast(1.04);
+    opacity: .52;
+    filter: grayscale(8%) saturate(.98) contrast(1.05);
 }
 .partial-service-card .luxus-icon-container,
 .partial-service-card .partial-service-title,
@@ -38,5 +39,11 @@
     #serviceTabs > .service-tab-btn,
     .methodology-snap-carousel > * {
         scroll-snap-align: center;
+    }
+
+    /* Subtle edge fade to hint more content */
+    #serviceTabs {
+        mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 92%, transparent 100%);
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 92%, transparent 100%);
     }
 }
